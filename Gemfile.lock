@@ -85,7 +85,11 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     debug_inspector (1.1.0)
+    email_validator (2.2.4)
+      activemodel
     erubi (1.12.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -179,6 +183,8 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  email_validator
+  faker
   jbuilder
   pg (~> 1.1)
   pry-rails

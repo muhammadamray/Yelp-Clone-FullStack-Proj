@@ -2,10 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :first_name, presence: true
     validates :last_name, presence: true
-    validates :email, 
-      uniqueness: true, 
-      presence: true,
-      email: true
+    validates :email, uniqueness: true, length: { in: 3..255 }, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :session_token, presence: true, uniqueness: true
     validates :zip_code, length: { is: 5 }, presence: true
     validates :password, length: { in: 6..255 }, allow_nil: true

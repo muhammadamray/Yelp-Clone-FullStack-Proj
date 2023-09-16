@@ -19,9 +19,9 @@ ApplicationRecord.transaction do
     User.create!(
       first_name: 'Mo',
       last_name: 'Amray',
-      email: 'demo@user.io', 
+      email: 'muhammadamray@gmail.com', 
       password: 'password',
-      zip_code: "11510"
+      zip_code: '11510'
     )
   
     # More users
@@ -33,7 +33,7 @@ ApplicationRecord.transaction do
         User.create!({
             first_name: first_name,
             last_name: last_name,
-            zip_code: zip_code,
+            zip_code: '11111',
             email: Faker::Internet.unique.email,
             password: 'password'
         })

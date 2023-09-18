@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
+import Login from "./Login.png";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -33,35 +34,76 @@ function LoginFormPage() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </>
+    <div>
+      <div id="header">
+        <div id="NotYelp">
+          <a href="/">Not Yelp</a>
+        </div>
+      </div>
+
+      <div id="parent">
+        <div className="Login-wrapper">
+          <h1 id="title">Log In to Not Yelp</h1>
+          <form onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+
+            <div id = "top-form">
+              <div id="welcome">
+                New to Not Yelp?
+                <a href="/signup"> Sign up</a>
+              </div>
+
+              <div id="msg">
+              By logging in, you agree to Not Yelp's 
+                <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/">
+                  Terms of Service
+                </a>and 
+                <a href="https://terms.yelp.com/privacy/en_us/20220831_en_us/">
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
+
+            <div className="demo-login-button">Demo Login</div>
+
+            <div id="email">
+              <input
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div id="password">
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button id="button" type="submit">
+              Log In
+            </button>
+          </form>
+        </div>
+
+        <div id="image">
+            <img className="Login" src={Login}></img>
+        </div>
+      </div>
+
+      <div id="footer">
+        footer
+      </div>
+    </div>
   );
 }
 

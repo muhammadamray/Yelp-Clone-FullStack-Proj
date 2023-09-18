@@ -6,25 +6,31 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
-    if (showMenu) {
-      setShowMenu(!showMenu);
-    } else {
-      setShowMenu(true);
-    }
-  };
+//   const openMenu = () => {
+//     if (showMenu) {
+//       setShowMenu(!showMenu);
+//     } else {
+//       setShowMenu(true);
+//     }
+//   };
 
-  //   useEffect(() => {
-  //     if (!showMenu) return;
 
-  //     const closeMenu = () => {
-  //       setShowMenu(false);
-  //     };
+//   const openMenu = () => {
+//     if (showMenu) return;
+//     setShowMenu(true);
+//   };
+  
+    useEffect(() => {
+      if (!showMenu) return;
 
-  //     document.addEventListener('click', closeMenu);
+      const closeMenu = () => {
+        setShowMenu(false);
+      };
 
-  //     return () => document.removeEventListener("click", closeMenu);
-  //   }, [showMenu]);
+      document.addEventListener('click', closeMenu);
+
+      return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -33,7 +39,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={() => setShowMenu(!showMenu)}>
         <i className="fa-solid fa-user-circle" />
       </button>
       {showMenu && (

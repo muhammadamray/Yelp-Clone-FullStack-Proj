@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import Login from "./Login.png";
+import Logo from "./Logo.png";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -37,7 +38,12 @@ function LoginFormPage() {
     <div>
       <div id="header">
         <div id="NotYelp">
-          <a href="/">Not Yelp</a>
+          <a href="/">
+            <div className="centered-content">
+              <span className="not-yelp-text">not yelp</span>
+              <img src={Logo} alt="Not Yelp Logo" className="not-yelp-logo" />
+            </div>
+          </a>
         </div>
       </div>
 
@@ -51,17 +57,18 @@ function LoginFormPage() {
               ))}
             </ul>
 
-            <div id = "top-form">
+            <div id="top-form">
               <div id="welcome">
                 New to Not Yelp?
                 <a href="/signup"> Sign up</a>
               </div>
 
               <div id="msg">
-              By logging in, you agree to Not Yelp's 
+                By logging in, you agree to Not Yelp's
                 <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/">
                   Terms of Service
-                </a>and 
+                </a>
+                and
                 <a href="https://terms.yelp.com/privacy/en_us/20220831_en_us/">
                   Privacy Policy
                 </a>
@@ -96,13 +103,11 @@ function LoginFormPage() {
         </div>
 
         <div id="image">
-            <img className="Login" src={Login}></img>
+          <img className="Login" src={Login} alt="" />
         </div>
       </div>
 
-      <div id="footer">
-        footer
-      </div>
+      <div id="footer">footer</div>
     </div>
   );
 }

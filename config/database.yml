@@ -81,4 +81,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["YELP_CLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

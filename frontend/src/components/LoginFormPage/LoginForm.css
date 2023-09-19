@@ -15,8 +15,6 @@
     align-items: center;
 }
 
-
-
 .not-yelp-text {
     font-size: 22px;
     font-family: 'Helvetica Neue', sans-serif;
@@ -75,6 +73,19 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     margin: 5px 0; /* Adjust the margin as needed */
 }
+
+fieldset {
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-top: 1px solid gray;
+    margin-top: 10px;
+}
+
+fieldset > legend {
+    padding: 20px 15px;
+    color: rgba(110, 112, 114, 1);
+}
   
 .msg-line a {
     color: #0073bb;
@@ -89,7 +100,7 @@ body {
 #parent {
     display: flex;
     flex-direction: row;
-    margin-top: 250px;
+    margin-top: 210px;
     justify-content: space-between;
 }
 
@@ -173,4 +184,9 @@ body {
     color: white;
     font-size: 17px;
     font-weight: bold;
+}
+
+.right-align {
+    text-align: left;
+    font-size: 12px;
 }

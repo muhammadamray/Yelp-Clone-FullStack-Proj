@@ -79,13 +79,13 @@ function LoginFormPage() {
 
             <div className="demo-login-button">Demo Login</div>
 
-            <span id ="lines">
-              or
-            </span>
+            <fieldset>
+              <legend align="center">OR</legend>
+            </fieldset>
 
             <div id="email">
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -106,6 +106,13 @@ function LoginFormPage() {
               Log In
             </button>
           </form>
+
+          <div className="signup-link">
+            <p className="right-align">
+              New to Not Yelp? <a href="/signup">Sign up</a>
+            </p>
+          </div>
+
         </div>
 
         <div id="image">

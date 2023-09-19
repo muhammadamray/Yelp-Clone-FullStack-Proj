@@ -10,15 +10,12 @@
     padding: 10px 0;
     z-index: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Change flex direction to column */
+    justify-content: center; /* Center vertically */
     align-items: center;
 }
 
-.centered-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .not-yelp-text {
     font-size: 22px;
@@ -35,7 +32,9 @@
     margin-left: 5px; 
 }
 
-
+a {
+    text-decoration: none !important;
+}
 
 body {
     display: flex;
@@ -45,14 +44,46 @@ body {
     margin: 0;
 }
 
-#msg a {
-    color: #0073bb; /* Link color */
-    text-decoration: none; /* Remove underlines */
-    margin: 0 3px; /* Add spacing between links */
+.bold-text {
+    font-weight: bold;
+    margin-right: 5px;
 }
 
-#msg a:hover {
-    text-decoration: underline; /* Underline on hover */
+#title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 21px;
+    color: #d32323;
+    margin-bottom: 0.5px; /* Reduce the margin between the title and the next element */
+}
+
+.centered-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Adjust the margin as needed */
+}
+  
+.centered-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 20px; Adjust the margin as needed */
+}
+
+.msg-line {
+    font-size: 12px;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 5px 0; /* Adjust the margin as needed */
+}
+  
+.msg-line a {
+    color: #0073bb;
+    text-decoration: none;
+    margin: 0 3px;
+}
+  
+.msg-line a:hover {
+    text-decoration: underline;
 }
 
 #parent {
@@ -66,8 +97,8 @@ body {
     width: 50%;
     padding: 0 20px;
     display: flex; 
-    flex-direction: column; /* Display form elements in a column */
-    align-items: center; /* Center form content horizontally */
+    flex-direction: column;
+    align-items: center;
 }
 
 #top-form {
@@ -76,14 +107,13 @@ body {
 
 #msg {
     font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
-
 .demo-login-button {
-    background-color: #0073bb; /* Button background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Adjust padding for button size */
+    background-color: #0073bb;
+    color: #fff;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -91,13 +121,13 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 0; /* Add margin for spacing */
+    margin: 35px 0; /* Adjust margin to add spacing */
+    width: 88%;
 }
 
 .demo-login-button:hover {
-    background-color: #0059a7; /* Change background color on hover */
+    background-color: #0059a7;
 }
-
 
 #image {
     margin: 0px;
@@ -109,7 +139,7 @@ body {
 }
 
 #title {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 21px;
     color: #d32323;
 }
@@ -123,7 +153,7 @@ body {
     border: 1px solid #36363680;
     border-radius: 5px;
     background-color: #ffffff;
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-size: 16px;
     color: #333;
 }
@@ -131,14 +161,16 @@ body {
 #email input::placeholder,
 #password input::placeholder {
     color: #7b7b7be0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
-
-#footer {
-    background-color: #f0f0f0; /* Background color for the footer */
-    padding: 20px; /* Adjust padding for spacing */
-    text-align: center;
-    font-size: 14px;
-    color: #333;
+#button {
+    width: 100%; 
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d32323;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
 }

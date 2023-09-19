@@ -58,24 +58,30 @@ function LoginFormPage() {
             </ul>
 
             <div id="top-form">
-              <div id="welcome">
-                New to Not Yelp?
+              <div id="welcome" className="centered-text">
+                <span className="bold-text">New to Not Yelp?</span>
                 <a href="/signup"> Sign up</a>
               </div>
-
               <div id="msg">
-                By logging in, you agree to Not Yelp's
-                <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/">
-                  Terms of Service
-                </a>
-                and
-                <a href="https://terms.yelp.com/privacy/en_us/20220831_en_us/">
-                  Privacy Policy
-                </a>
+                <div className="msg-line">
+                  By logging in, you agree to Not Yelp's
+                </div>
+                <div className="msg-line">
+                  <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/">
+                    Terms of Service
+                  </a>
+                  <a href="https://terms.yelp.com/privacy/en_us/20220831_en_us/">
+                    Privacy Policy
+                  </a>
+                </div>
               </div>
             </div>
 
             <div className="demo-login-button">Demo Login</div>
+
+            <span id ="lines">
+              or
+            </span>
 
             <div id="email">
               <input
@@ -106,8 +112,6 @@ function LoginFormPage() {
           <img className="Login" src={Login} alt="" />
         </div>
       </div>
-
-      <div id="footer">footer</div>
     </div>
   );
 }

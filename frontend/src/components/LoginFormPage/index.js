@@ -23,6 +23,7 @@ function LoginFormPage() {
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
+          console.log(data);
           data = await res.clone().json();
         } catch {
           data = await res.text(); // Will hit this case if, e.g., server is down
@@ -32,6 +33,11 @@ function LoginFormPage() {
         else setErrors([res.statusText]);
       }
     );
+  };
+
+  const DemoLogin = async () => {
+    const demoUser = { email: "demologin@gmail.com", password: "password" };
+    dispatch(sessionActions.login(demoUser));
   };
 
   return (
@@ -47,16 +53,16 @@ function LoginFormPage() {
         </div>
       </div>
 
+
       <div id="parent">
+      <ul>
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
         <div className="Login-wrapper">
           <h1 id="title">Log In to Not Yelp</h1>
           <form onSubmit={handleSubmit}>
-            <ul>
-              {errors.map((error) => (
-                <li key={error}>{error}</li>
-              ))}
-            </ul>
-
             <div id="top-form">
               <div id="welcome" className="centered-text">
                 <span className="bold-text">New to Not Yelp?</span>
@@ -70,6 +76,7 @@ function LoginFormPage() {
                   <a href="https://terms.yelp.com/tos/en_us/20200101_en_us/">
                     Terms of Service
                   </a>
+                  and
                   <a href="https://terms.yelp.com/privacy/en_us/20220831_en_us/">
                     Privacy Policy
                   </a>
@@ -77,7 +84,9 @@ function LoginFormPage() {
               </div>
             </div>
 
-            <div className="demo-login-button">Demo Login</div>
+            <div className="demo-login-button" onClick={DemoLogin}>
+              Demo Login
+            </div>
 
             <fieldset>
               <legend align="center">OR</legend>
@@ -102,6 +111,7 @@ function LoginFormPage() {
                 required
               />
             </div>
+
             <button id="button" type="submit">
               Log In
             </button>
@@ -112,7 +122,6 @@ function LoginFormPage() {
               New to Not Yelp? <a href="/signup">Sign up</a>
             </p>
           </div>
-
         </div>
 
         <div id="image">

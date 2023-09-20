@@ -4,6 +4,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import Splash from "./components/Splash";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Navigation />
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }

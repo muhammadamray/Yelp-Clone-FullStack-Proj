@@ -1,6 +1,15 @@
 const Splash = () => {
 
 
+
+
+
+
+
+
+    
+
+
     return (
         <>
         <div>Splashhh page</div>

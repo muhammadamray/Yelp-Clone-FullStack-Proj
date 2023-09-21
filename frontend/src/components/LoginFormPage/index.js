@@ -41,7 +41,8 @@ function LoginFormPage() {
   };
 
   return (
-    <div>
+    <>
+    <div id="container">
       <div id="header">
         <div id="NotYelp">
           <a href="/">
@@ -53,13 +54,15 @@ function LoginFormPage() {
         </div>
       </div>
 
+      <div class = "error-wrapper">
+        <ul id="error">
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      </div>
 
       <div id="parent">
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
         <div className="Login-wrapper">
           <h1 id="title">Log In to Not Yelp</h1>
           <form onSubmit={handleSubmit}>
@@ -129,6 +132,7 @@ function LoginFormPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

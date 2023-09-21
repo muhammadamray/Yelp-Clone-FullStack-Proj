@@ -1,7 +1,12 @@
+#container{
+    display: flex;
+    justify-content: center;
+    /* padding-top: 65px; */
+    
+}
+
 #header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     width: 100%;
     height: 45px;
     background-color: #d32323;
@@ -10,7 +15,7 @@
     padding: 10px 0;
     z-index: 1;
     display: flex;
-    flex-direction: column; /* Change flex direction to column */
+    flex-direction: row; /* Change flex direction to column */
     justify-content: center; /* Center vertically */
     align-items: center;
 }
@@ -36,13 +41,13 @@ a {
     text-decoration: none !important;
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
-}
+} */
 
 .bold-text {
     font-weight: bold;
@@ -115,6 +120,34 @@ fieldset > legend {
     flex-direction: column;
     align-items: center;
 }
+
+.error-wrapper {
+    display: flex;
+    height: 5%;
+    width: 300px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 80px; 
+    border-radius: 5px; 
+    padding: 10px; 
+}
+
+#error {
+    border-radius: 10px;
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    color: rgb(0, 0, 0); /* Set the text color */
+    background-color: #fcd6d3; /* Set the background color */
+    
+}
+
+#error li {
+    margin: 10px 0; 
+}
+  
 
 #top-form {
     text-align: center;

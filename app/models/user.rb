@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  email           :string           not null
+#  zip_code        :string           not null
+#  birthday        :string
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     has_secure_password
     validates :first_name, presence: true
@@ -11,6 +26,11 @@ class User < ApplicationRecord
 
     # has_many :reviews,
     # dependent: :destroy
+
+    has_many :businesses,
+    class_name: :Business,
+    foreign_key: :user_id,
+    dependent: :destroy
   
     def self.find_by_credentials(email, password)
       user = User.find_by(email: email)

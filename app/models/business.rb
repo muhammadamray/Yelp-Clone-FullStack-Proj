@@ -23,9 +23,6 @@ class Business < ApplicationRecord
     validates :phone_number, presence: true, length: { is: 12 }
     validates :category, presence: true
 
-    # belongs_to :owner,
-    # class_name: :User,
-    # foreign_key: :user_id
 
     # has_many :reviews,
     # class_name: :Review,

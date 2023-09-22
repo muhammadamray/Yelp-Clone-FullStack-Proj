@@ -1,4 +1,7 @@
 import csrfFetch from "./csrf";
+import { createSelector } from "reselect";
+
+const selectBusinesses = (state) => state.businesses;
 
 export const RECEIVE_BUSINESSES = "business/RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "business/RECEIVE_BUSINESS";
@@ -24,11 +27,9 @@ export const getBusiness = (businessId) => {
   };
 };
 
-export const getBusinesses = (state) => {
-  if (state.businesses) return Object.values(state.businesses);
-  return [];
-};
-
+export const getBusinesses = createSelector([selectBusinesses], (businesses) =>
+  Object.values(businesses)
+);
 export const fetchBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/businesses");
 
@@ -47,7 +48,7 @@ export const fetchBusiness = (businessId) => async (dispatch) => {
   }
 };
 
-const businesssesReducer = (state = {}, action) => {
+const businessesReducer = (state = {}, action) => {
   const nextState = Object.assign({}, state);
 
   switch (action.type) {
@@ -60,4 +61,4 @@ const businesssesReducer = (state = {}, action) => {
       return state;
   }
 };
-export default businesssesReducer;
+export default businessesReducer;

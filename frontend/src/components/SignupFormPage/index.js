@@ -64,12 +64,12 @@ function SignupFormPage() {
       </div>
 
       <div id="parent">
-        <ul>
-          {errors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
         <div className="Login-wrapper">
+          <ul>
+            {errors.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
           <h1 id="title">Sign Up for Not Yelp</h1>
           <form onSubmit={handleSubmit}>
             <div id="top-form">
@@ -108,7 +108,7 @@ function SignupFormPage() {
                 placeholder="First Name"
                 value={first_name}
                 onChange={(e) => setFirstName(e.target.value)}
-                required
+                
               />
             </div>
 
@@ -118,7 +118,7 @@ function SignupFormPage() {
                 placeholder="Last Name"
                 value={last_name}
                 onChange={(e) => setLastName(e.target.value)}
-                required
+                
               />
             </div>
 
@@ -128,7 +128,7 @@ function SignupFormPage() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+          
               />
             </div>
 
@@ -138,7 +138,7 @@ function SignupFormPage() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+               
               />
             </div>
 
@@ -148,7 +148,7 @@ function SignupFormPage() {
                 placeholder="Zip Code"
                 value={zip_code}
                 onChange={(e) => setZipCode(e.target.value)}
-                required
+                
               />
             </div>
 
@@ -173,10 +173,10 @@ function SignupFormPage() {
             </a>
           </div>
         </div>
-
         <div id="image">
           <img className="Login" src={Login} alt="" />
         </div>
+
       </div>
     </div>
   );

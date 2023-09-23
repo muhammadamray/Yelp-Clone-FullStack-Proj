@@ -6,12 +6,19 @@ import Navigation from "./components/Navigation";
 import Splash from "./components/Splash";
 import Footer from "./components/Footer";
 import Business from "./components/Business";
+import BusinessShow from "./components/BusinessShow";
 
 function App() {
   return (
     <>
+      <Navigation />
       <Switch>
-      <Route path="/resturants">
+        <Route path="/restaurants/:restaurantId">
+          {" "}
+          {/* Dynamic route parameter */}
+          <BusinessShow />
+        </Route>
+        <Route path="/restaurants">
           <Business />
         </Route>
         <Route path="/login">
@@ -22,8 +29,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Splash />
-          <Navigation />
+          {/* <Navigation /> */}
         </Route>
+        <Route path></Route>
       </Switch>
       <Footer />
     </>

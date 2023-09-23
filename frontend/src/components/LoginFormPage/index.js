@@ -43,16 +43,6 @@ function LoginFormPage() {
   return (
     <>
       <div id="container">
-        <div id="header">
-          <div id="NotYelp">
-            <a href="/">
-              <div className="centered-content">
-                <span className="not-yelp-text">not yelp</span>
-                <img src={Logo} alt="Not Yelp Logo" className="not-yelp-logo" />
-              </div>
-            </a>
-          </div>
-        </div>
 
         <div className="error-wrapper">
           <ul id="error">
@@ -61,7 +51,7 @@ function LoginFormPage() {
             ))}
           </ul>
         </div>
-
+            
         <div id="parent">
           <div className="Login-wrapper">
             <h1 id="title">Log In to Not Yelp</h1>

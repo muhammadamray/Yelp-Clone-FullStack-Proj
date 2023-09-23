@@ -1,33 +1,64 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import * as sessionActions from "../../store/session";
+import Logo from "./Logo.png";
 import "./Navigation.css";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
+
+  const DemoLogin = async () => {
+    const demoUser = { email: "demologin@gmail.com", password: "password" };
+    dispatch(sessionActions.login(demoUser));
+  };
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = <ProfileButton user={sessionUser} />;
   } else {
     sessionLinks = (
-      <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
+      <div className="auth-btn-container">
+        <NavLink to="/login" className="login-btn">
+          Log In
+        </NavLink>
+        <NavLink to="/signup" className="signup-btn">
+          Sign Up
+        </NavLink>
+        <div className="demo-login" onClick={DemoLogin}>
+          Demo Login
+        </div>
+      </div>
     );
   }
-
+  
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-        {sessionLinks}
-      </li>
-    </ul>
+    <div className="cont">
+      <div id="header">
+        <div id="NotYelp">
+          <NavLink to="/">
+            <div className="centered-content">
+              <span className="not-yelp-text">not yelp</span>
+              <img src={Logo} alt="Not Yelp Logo" className="not-yelp-logo" />
+            </div>
+          </NavLink>
+        </div>
+
+          <div className="resturants">
+            <NavLink exact to="/restaurants" className="restaurants-link">
+              Restaurants
+            </NavLink>
+          </div>
+
+        <div id="sessionLinks">{sessionLinks}</div>
+
+        <div>
+
+        </div>
+      </div>
+    </div>
   );
 }
 

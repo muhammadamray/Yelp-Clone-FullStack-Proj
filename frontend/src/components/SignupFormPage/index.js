@@ -52,17 +52,6 @@ function SignupFormPage() {
 
   return (
     <div>
-      <div id="header">
-        <div id="NotYelp">
-          <a href="/">
-            <div className="centered-content">
-              <span className="not-yelp-text">not yelp</span>
-              <img src={Logo} alt="Not Yelp Logo" className="not-yelp-logo" />
-            </div>
-          </a>
-        </div>
-      </div>
-
       <div id="parent">
         <div className="Login-wrapper">
           <ul>
@@ -70,6 +59,7 @@ function SignupFormPage() {
               <li key={error}>{error}</li>
             ))}
           </ul>
+
           <h1 id="title">Sign Up for Not Yelp</h1>
           <form onSubmit={handleSubmit}>
             <div id="top-form">
@@ -108,7 +98,6 @@ function SignupFormPage() {
                 placeholder="First Name"
                 value={first_name}
                 onChange={(e) => setFirstName(e.target.value)}
-                
               />
             </div>
 
@@ -118,7 +107,6 @@ function SignupFormPage() {
                 placeholder="Last Name"
                 value={last_name}
                 onChange={(e) => setLastName(e.target.value)}
-                
               />
             </div>
 
@@ -128,7 +116,6 @@ function SignupFormPage() {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-          
               />
             </div>
 
@@ -138,7 +125,6 @@ function SignupFormPage() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-               
               />
             </div>
 
@@ -148,7 +134,6 @@ function SignupFormPage() {
                 placeholder="Zip Code"
                 value={zip_code}
                 onChange={(e) => setZipCode(e.target.value)}
-                
               />
             </div>
 
@@ -176,7 +161,6 @@ function SignupFormPage() {
         <div id="image">
           <img className="Login" src={Login} alt="" />
         </div>
-
       </div>
     </div>
   );

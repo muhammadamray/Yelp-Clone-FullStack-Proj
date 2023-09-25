@@ -6,7 +6,7 @@
     color: white;
     text-align: center;
     padding: 10px 0;
-    z-index: 1;
+    z-index: 100;
     display: flex;
     flex-direction: row; /* Change flex direction to column */
     justify-content: center; /* Center vertically */
@@ -26,7 +26,15 @@
     line-height: 1.5em;
     padding: 0.2em 0.5em;
     border-radius: 4px;
+    color: #d2d0d5;
 }
+
+.demo-login{
+    height: 24px;
+    /* background-color: blueviolet; */
+    
+}
+
 
 #NotYelp{
     margin-right: 2em;

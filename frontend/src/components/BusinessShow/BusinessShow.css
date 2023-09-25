@@ -1,0 +1,89 @@
+.picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh;  */
+    background-color: #f0f0f0; 
+    margin-top: 40px;
+}
+  
+
+.business-image {
+    max-width: 100%; 
+    max-height: 750px; 
+    object-fit: cover; 
+    display: block;
+    z-index: 0;
+}
+  
+#bus-name{
+    display: flex;
+    margin-left: 9px;
+    font-family: Helvetica, sans-serif;
+    font-size: 60px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.rest-info{
+    z-index: 2;
+    position: absolute;
+    top: 78%;
+    left: 8%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+.rating-count{
+    margin-left: 15px;
+    color: white;
+    font-size: 17px;
+}
+
+.extra-content {
+    height: 500px;
+    width: 100%;
+    background-color: rgb(49, 49, 88);
+}
+  
+.claim-category {
+    display: flex;
+    align-items: center;
+}
+
+.claim-review {
+    display: flex; 
+    align-items: center; 
+    color: rgb(88, 180, 255); 
+    font-weight: bold; 
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+#bus-cat{
+    font-size: 19px;
+    margin-top: 3px;
+}
+  
+.check-image {
+    width: 17px; 
+    height: 17px; 
+    margin-right: 2px; 
+}
+
+.open-timing {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}
+
+#open{
+    color: green;
+}
+
+#timing {
+    margin-left: 10px; /* Add some space between "Open" and the timing */
+}

@@ -13,9 +13,7 @@ function App() {
     <>
       <Navigation />
       <Switch>
-        <Route path="/restaurants/:restaurantId">
-          {" "}
-          {/* Dynamic route parameter */}
+        <Route path="/restaurants/:businessId">
           <BusinessShow />
         </Route>
         <Route path="/restaurants">
@@ -31,7 +29,6 @@ function App() {
           <Splash />
           {/* <Navigation /> */}
         </Route>
-        <Route path></Route>
       </Switch>
       <Footer />
     </>

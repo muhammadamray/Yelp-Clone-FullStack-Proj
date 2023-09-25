@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import "./Business.css";
 
 const IndexItem = ({ business }) => {
-  console.log(business);
+  // console.log(business);
+  // console.log(business.id);
 
   return (
-    <Link to={`/businesses/${business.id}`} className="business-link">
+    <Link to={`/restaurants/${business.id}`} className="business-link">
       <div className="business-container">
         <div className="business-image-container">
           <img

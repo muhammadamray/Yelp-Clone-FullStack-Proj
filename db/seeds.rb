@@ -1,3 +1,6 @@
+require "open-uri"
+
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -42,17 +45,23 @@ ApplicationRecord.transaction do
     end
 
     # Business 1 - Italian Restaurant
+    
     business_1 = Business.create!(
-      name: "Italian Restaurant 1",
+      name: "Nobu",
       city: "New York City",
       state: "New York",
-      zip_code: "10001",
-      latitude: 40.730610,
-      longitude: -73.935242,
-      price_range: "$$",
-      phone_number: "212-555-1234",
-      category: "Italian",
-      rating: 4.5
+      zip_code: "10013",
+      latitude: 40.716675,
+      longitude: -74.009610,
+      price_range: "$$$",
+      phone_number: "212-757-3000",
+      category: "Japanese",
+      rating: 4.8
+    )
+
+    business_1.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/nobu.jpeg"),
+      filename: "nobu.jpeg"
     )
 
     # Business 2 - Sushi Bar

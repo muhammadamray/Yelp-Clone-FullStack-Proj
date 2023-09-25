@@ -23,6 +23,7 @@ class Business < ApplicationRecord
     validates :phone_number, presence: true, length: { is: 12 }
     validates :category, presence: true
 
+    has_one_attached :photo
 
     # has_many :reviews,
     # class_name: :Review,

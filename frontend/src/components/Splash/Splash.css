@@ -1,0 +1,29 @@
+.carousel {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+  
+.fade {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 3.2s ease-in-out; /* Increase the duration to 2 seconds */
+}
+
+  
+.fade.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* NEED TO MAKE SURE EVERYTHING IS CHANGING DYNAMICALLY */
+
+  

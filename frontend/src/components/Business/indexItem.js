@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import "./Business.css";
 
 const IndexItem = ({ business }) => {
@@ -14,7 +14,7 @@ const IndexItem = ({ business }) => {
           <img
             src={business.photoUrl}
             alt={business.name}
-            className="business-image"
+            className="bus-image"
           />
         </div>
 
@@ -22,18 +22,18 @@ const IndexItem = ({ business }) => {
           <h2>{business.name}</h2>
 
           <div className="business-rating">
-            ⭐⭐⭐⭐⭐ <span className="rating-count">(number of ratings)</span>
+            ⭐⭐⭐⭐⭐ <span className="rating-count">number of ratings)</span>
           </div>
 
           <div className="business-info">
             <div>{business.category}</div>
-            <ul>{business.price_range}</ul>
+            <ul>{business.priceRange}</ul>
           </div>
 
           <div className="business-location">
             <ul>
               <li id="address" key={business.id}>
-                {business.city}, {business.state}, {business.zip_code}
+                {business.city}, {business.state}, {business.zipCode}
               </li>
             </ul>
           </div>

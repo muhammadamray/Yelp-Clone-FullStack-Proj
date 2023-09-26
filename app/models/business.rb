@@ -25,10 +25,8 @@ class Business < ApplicationRecord
 
     has_one_attached :photo
 
-    # has_many :reviews,
-    # class_name: :Review,
-    # foreign_key: :business_id,
-    # dependent: :destroy
+    has_many :reviews,
+    dependent: :destroy
 
     # has_many :reviewers,
     # through: :reviews,

@@ -9,8 +9,8 @@
     margin-top: 40px;
 }
 
-.business-image {
-    max-width: 100%; 
+.show-business-image {
+    width: 100%; 
     max-height: 750px; 
     object-fit: cover; 
     display: block;
@@ -88,10 +88,11 @@
 }
 
 /* Media query for larger screens (e.g., 24-inch monitors) */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1920px) {
     /* Increase image size for larger screens */
-    .business-image {
+    .show-business-image {
         display: flex;
-        max-height: 900px;
+        width: 100%; 
+        max-height: 900px; 
     }
 }

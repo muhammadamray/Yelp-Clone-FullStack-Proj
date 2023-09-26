@@ -21,7 +21,7 @@ ApplicationRecord.transaction do
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
-    User.create!(
+    user_1 = User.create!(
       first_name: 'Demo',
       last_name: 'Login',
       email: 'demologin@gmail.com', 
@@ -44,7 +44,7 @@ ApplicationRecord.transaction do
       })
     end
 
-    
+    puts "creating businesses"
     
     business_1 = Business.create!(
       name: "Nobu",
@@ -220,9 +220,46 @@ ApplicationRecord.transaction do
       category: "Pizza",
       rating: 4.6
     )
+
     business_10.photo.attach(
       io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/lom.webp"),
       filename: "lom.webp"
     )
+
+
+
+
+    puts "creating review" 
+
+    review_1 = Review.create!(
+      rating: 5,
+      body: "food was ok",
+      user_id: 1,
+      business_id: business_1.id
+    )
+
+    review_2 = Review.create!(
+      rating: 4,
+      body: "food was ok",
+      user_id: 1,
+      business_id: business_2.id
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   puts "Done!"
 end

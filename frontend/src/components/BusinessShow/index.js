@@ -34,7 +34,7 @@ const BusinessShow = () => {
         <img
           src={business.photoUrl}
           alt={business.name}
-          className="business-image"
+          className="show-business-image"
         />
 
         <div className="rest-info">

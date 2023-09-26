@@ -1,3 +1,4 @@
+/* Styles for medium screens (e.g., laptops) */
 .picture-container {
     display: flex;
     flex-direction: column;
@@ -7,7 +8,6 @@
     background-color: #f0f0f0; 
     margin-top: 40px;
 }
-  
 
 .business-image {
     max-width: 100%; 
@@ -16,8 +16,8 @@
     display: block;
     z-index: 0;
 }
-  
-#bus-name{
+
+#bus-name {
     display: flex;
     margin-left: 9px;
     font-family: Helvetica, sans-serif;
@@ -25,7 +25,7 @@
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.rest-info{
+.rest-info {
     z-index: 2;
     position: absolute;
     top: 78%;
@@ -33,10 +33,9 @@
     color: white;
     font-size: 24px;
     font-weight: bold;
-
 }
 
-.rating-count{
+.rating-count {
     margin-left: 15px;
     color: white;
     font-size: 17px;
@@ -47,7 +46,7 @@
     width: 100%;
     background-color: rgb(49, 49, 88);
 }
-  
+
 .claim-category {
     display: flex;
     align-items: center;
@@ -63,11 +62,11 @@
     margin-right: 10px;
 }
 
-#bus-cat{
+#bus-cat {
     font-size: 19px;
     margin-top: 3px;
 }
-  
+
 .check-image {
     width: 17px; 
     height: 17px; 
@@ -80,10 +79,19 @@
     font-size: 17px;
 }
 
-#open{
+#open {
     color: green;
 }
 
 #timing {
-    margin-left: 10px; /* Add some space between "Open" and the timing */
+    margin-left: 10px;
+}
+
+/* Media query for larger screens (e.g., 24-inch monitors) */
+@media screen and (min-width: 1200px) {
+    /* Increase image size for larger screens */
+    .business-image {
+        display: flex;
+        max-height: 900px;
+    }
 }

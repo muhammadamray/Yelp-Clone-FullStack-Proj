@@ -2,13 +2,14 @@ class Api::BusinessesController < ApplicationController
     def index
         @businesses = Business.all
         # render :index
-        render json: @businesses
+        # render json: @businesses
+        render 'api/businesses/index'
     end
     
     def show
         @business = Business.find(params[:id])    #.includes(:reviews) when I have reviews 
         # render :show
-        render json: @business
+        render 'api/businesses/show'   #changed the render from @business to this one...... any issue?
     end
 
 

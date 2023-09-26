@@ -44,7 +44,7 @@ ApplicationRecord.transaction do
       })
     end
 
-    # Business 1 - Italian Restaurant
+    
     
     business_1 = Business.create!(
       name: "Nobu",
@@ -53,7 +53,7 @@ ApplicationRecord.transaction do
       zip_code: "10013",
       latitude: 40.716675,
       longitude: -74.009610,
-      price_range: "$$$",
+      price_range: "$$$$",
       phone_number: "212-757-3000",
       category: "Japanese",
       rating: 4.8
@@ -64,122 +64,165 @@ ApplicationRecord.transaction do
       filename: "nobu.jpeg"
     )
 
-    # Business 2 - Sushi Bar
+  
     business_2 = Business.create!(
-      name: "Sushi Bar 1",
+      name: "Sushi Nakazawa",
       city: "New York City",
       state: "New York",
-      zip_code: "10002",
-      latitude: 40.718428,
-      longitude: -73.989130,
-      price_range: "$$$",
-      phone_number: "212-555-5678",
+      zip_code: "10014",
+      latitude: 40.731797,
+      longitude: -74.0045140,
+      price_range: "$$$$",
+      phone_number: "212-924-2212",
       category: "Sushi",
-      rating: 4.8
-   
-    )
-
-    # Business 3 - Pizza Place
-    business_3 = Business.create!(
-      name: "Pizza Place 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10003",
-      latitude: 40.732605,
-      longitude: -73.989026,
-      price_range: "$",
-      phone_number: "212-555-9876",
-      category: "Pizza",
-      rating: 4.2
-      
-    )
-
-    # Business 4 - Mexican Restaurant
-    business_4 = Business.create!(
-      name: "Mexican Restaurant 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10004",
-      latitude: 40.703617,
-      longitude: -74.011282,
-      price_range: "$$",
-      phone_number: "212-555-6543",
-      category: "Mexican",
       rating: 4.6
     )
 
-    # Business 5 - Indian Curry House
-    business_5 = Business.create!(
-      name: "Indian Curry House 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10005",
-      latitude: 40.705076,
-      longitude: -74.009160,
-      price_range: "$$$",
-      phone_number: "212-555-7890",
-      category: "Indian",
-      rating: 4.7
+    business_2.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/sushi.jpeg"),
+      filename: "sushi.jpeg"
     )
 
-    # Business 6 - BBQ Grill
-    business_6 = Business.create!(
-      name: "BBQ Grill 1",
+    business_3 = Business.create!(
+      name: "Joe's Pizza",
       city: "New York City",
       state: "New York",
-      zip_code: "10006",
-      latitude: 40.710215,
-      longitude: -74.011882,
-      price_range: "$$$",
-      phone_number: "212-555-2345",
-      category: "BBQ",
-      rating: 4.4
-    )
-
-    # Business 7 - Seafood Restaurant
-    business_7 = Business.create!(
-      name: "Seafood Restaurant 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10007",
-      latitude: 40.713174,
-      longitude: -74.010172,
-      price_range: "$$$$",
-      phone_number: "212-555-8765",
-      category: "Seafood",
-      rating: 4.9
-    )
-
-    # Business 8 - Burger Joint
-    business_8 = Business.create!(
-      name: "Burger Joint 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10008",
-      latitude: 40.718258,
-      longitude: -74.012692,
+      zip_code: "10014",
+      latitude: 40.730522,
+      longitude: -74.002205,
       price_range: "$",
-      phone_number: "212-555-3456",
-      category: "Burgers",
+      phone_number: "212-366-1182",
+      category: "Pizza",
+      rating: 4.5
+    )
+
+    business_3.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/joes.webp"),
+      filename: "joes.webp"
+    )
+
+   
+    business_4 = Business.create!(
+      name: "Hell's Kitchen",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10019",
+      latitude: 40.764579,
+      longitude: -73.988739,
+      price_range: "$$",
+      phone_number: "212-977-1588",
+      category: "American",
+      rating: 4.5
+    )
+
+    business_4.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/Hells.webp"),
+      filename: "Hells.webp"
+    )
+    
+    business_5 = Business.create!(
+      name: "Top Thai",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10014",
+      latitude: 40.7299526,
+      longitude: -74.0068115,
+      price_range: "$$",
+      phone_number: "646-609-2272",
+      category: "Thai",
       rating: 4.3
     )
 
-    # Business 9 - Thai Cuisine
-    business_9 = Business.create!(
-      name: "Thai Cuisine 1",
-      city: "New York City",
-      state: "New York",
-      zip_code: "10009",
-      latitude: 40.726766,
-      longitude: -73.981754,
-      price_range: "$$",
-      phone_number: "212-555-6789",
-      category: "Thai",
-      rating: 4.6
+    business_5.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/top-thai.jpeg"),
+      filename: "top-thai.jpeg"
     )
 
+    business_6 = Business.create!(
+      name: "Ribalta",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10003",
+      latitude: 40.733282,
+      longitude: -73.994134,
+      price_range: "$$",
+      phone_number: "212-777-7781",
+      category: "Italian",
+      rating: 4.4
+    )
 
-        
-    
+    business_6.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/ribalta.jpeg"),
+      filename: "ribalta.jpeg"
+    )
+
+    business_7 = Business.create!(
+      name: "L'Artusi",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10014",
+      latitude: 40.7335852,
+      longitude: -74.0056579,
+      price_range: "$$$",
+      phone_number: "212-255-5757",
+      category: "Italian",
+      rating: 4.7
+    )
+    business_7.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/lart.avif"),
+      filename: "lart.avif"
+    )
+
+    business_8 = Business.create!(
+      name: "Marea",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10019",
+      latitude: 40.7671376,
+      longitude: -73.9812163,
+      price_range: "$$$",
+      phone_number: "212-582-5100",
+      category: "Italian",
+      rating: 4.5
+    )
+    business_8.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/marea.jpeg"),
+      filename: "marea.jpeg"
+    )
+
+   
+    business_9 = Business.create!(
+      name: "Di Fara Pizza",
+      city: "New York City",
+      state: "New York",
+      zip_code: "11230",
+      latitude: 40.625422,
+      longitude: -73.961565,
+      price_range: "$$",
+      phone_number: "718-258-1367",
+      category: "Pizza",
+      rating: 4.7
+    )
+    business_9.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pizzzaa.jpeg"),
+      filename: "pizzzaa.jpeg"
+    )
+      
+    business_10 = Business.create!(
+      name: "Lombardi's Pizza",
+      city: "New York City",
+      state: "New York",
+      zip_code: "10012",
+      latitude: 40.721567,
+      longitude: -73.995755,
+      price_range: "$$",
+      phone_number: "212-941-7994",
+      category: "Pizza",
+      rating: 4.6
+    )
+    business_10.photo.attach(
+      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/lom.webp"),
+      filename: "lom.webp"
+    )
   puts "Done!"
 end

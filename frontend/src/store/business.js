@@ -6,10 +6,10 @@ const selectBusinesses = (state) => state.businesses;
 export const RECEIVE_BUSINESSES = "business/RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "business/RECEIVE_BUSINESS";
 
-export const receiveBusinesses = (businesses) => {
+export const receiveBusinesses = (data) => {
   return {
     type: RECEIVE_BUSINESSES,
-    businesses,
+    data,
   };
 };
 
@@ -34,8 +34,9 @@ export const fetchBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/businesses");
 
   if (res.ok) {
-    const businesses = await res.json();
-    dispatch(receiveBusinesses(businesses));
+    const data = await res.json();
+    // debugger
+    dispatch(receiveBusinesses(data));
   }
 };
 
@@ -53,7 +54,7 @@ const businessesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_BUSINESSES:
-      return { ...action.businesses };
+      return {...action.data.businesses };
     case RECEIVE_BUSINESS:
       nextState[action.business.id] = action.business;
       return nextState;

@@ -21,7 +21,7 @@ const Business = () => {
             <li key={business.id}>
               {/* Wrap IndexItem with Link */}
               <Link to={`/restaurants/${business.id}`}>
-                <IndexItem business={business} />
+                <IndexItem business={business} photo={business.photoURL} />
               </Link>
             </li>
           ))}

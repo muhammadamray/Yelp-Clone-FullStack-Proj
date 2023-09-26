@@ -12,7 +12,7 @@ const IndexItem = ({ business }) => {
       <div className="business-container">
         <div className="business-image-container">
           <img
-            src="https://media.istockphoto.com/id/1211547141/photo/modern-restaurant-interior-design.jpg?s=612x612&w=0&k=20&c=CvJmHwNNwfFzVjj1_cX9scwYsl4mnVO8XFPi0LQMTsw="
+            src={business.photoUrl}
             alt={business.name}
             className="business-image"
           />

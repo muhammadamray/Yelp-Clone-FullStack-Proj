@@ -32,7 +32,7 @@ const BusinessShow = () => {
     <div className="page-container">
       <div className="picture-container">
         <img
-          src="https://media.istockphoto.com/id/1211547141/photo/modern-restaurant-interior-design.jpg?s=612x612&w=0&k=20&c=CvJmHwNNwfFzVjj1_cX9scwYsl4mnVO8XFPi0LQMTsw="
+          src={business.photoUrl}
           alt={business.name}
           className="business-image"
         />
@@ -59,7 +59,6 @@ const BusinessShow = () => {
               <p id="open">Open </p>
               <p id="timing">9:00 am ~ 9:00 pm</p>
             </div>
-
           </div>
         </div>
       </div>

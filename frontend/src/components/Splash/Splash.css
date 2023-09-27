@@ -1,9 +1,10 @@
 .carousel {
     display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
   
 .fade {
@@ -15,14 +16,48 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 3.2s ease-in-out; /* Increase the duration to 2 seconds */
+    transition: opacity 3.1s ease-in-out; /* Increase the duration to 3.2 seconds */
 }
-
   
 .fade.active {
-    display: flex;
     opacity: 1;
 }
+  
+.centext {
+    display: flex;
+    align-items: center; /* Center vertically */
+    font-size: 35px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #ffffff; /* Text color */
+    position: absolute;
+    z-index: 1; /* Ensure text appears above the image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+}
+  
+.logo {
+    width: 9%;
+}
+  
+  @media screen and (min-width: 1920px) {
+    .centext {
+        display: flex;
+        align-items: center; /* Center vertically */
+        font-size: 40px; /* Adjust the font size as needed */
+        font-weight: bold; /* Make the text bold */
+        color: #ffffff; /* Text color */
+        position: absolute;
+        z-index: 1; /* Ensure text appears above the image */
+        top: 50%;
+        left: 50%;
+        transform: translate(-30%, -50%);
+    }
+    .logo {
+        width: 9%;
+    }
+}
+  
 
 /* NEED TO MAKE SURE EVERYTHING IS CHANGING DYNAMICALLY */
 

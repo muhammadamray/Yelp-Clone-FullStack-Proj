@@ -38,13 +38,13 @@ ApplicationRecord.transaction do
       User.create!({
         first_name: first_name,
         last_name: last_name,
-        zip_code: '11111',
+        zip_code: '10013',
         email: Faker::Internet.unique.email,
         password: 'password'
       })
     end
 
-    puts "creating businesses"
+    puts "Creating businesses"
     
     business_1 = Business.create!(
       name: "Nobu",
@@ -229,21 +229,161 @@ ApplicationRecord.transaction do
 
 
 
-    puts "creating review" 
+    puts "Creating review" 
 
+
+    # User 1 reviews
     review_1 = Review.create!(
       rating: 5,
-      body: "food was ok",
+      body: "Absolutely delicious!",
       user_id: 1,
       business_id: business_1.id
     )
 
     review_2 = Review.create!(
       rating: 4,
-      body: "food was ok",
+      body: "Great experience!",
       user_id: 1,
       business_id: business_2.id
     )
+
+    # User 2 reviews
+    review_3 = Review.create!(
+      rating: 5,
+      body: "Fantastic service and food.",
+      user_id: 2,
+      business_id: business_3.id
+    )
+
+    review_4 = Review.create!(
+      rating: 1,
+      body: "Terrible experience.",
+      user_id: 2,
+      business_id: business_4.id
+    )
+
+    # User 3 reviews
+    review_5 = Review.create!(
+      rating: 4,
+      body: "Delightful dining experience.",
+      user_id: 3,
+      business_id: business_5.id
+    )
+
+    review_6 = Review.create!(
+      rating: 3,
+      body: "Average food, but nice ambiance.",
+      user_id: 3,
+      business_id: business_6.id
+    )
+
+    # User 4 reviews
+    review_7 = Review.create!(
+      rating: 5,
+      body: "Exceptional quality!",
+      user_id: 4,
+      business_id: business_7.id
+    )
+
+    review_8 = Review.create!(
+      rating: 2,
+      body: "Not worth the visit.",
+      user_id: 4,
+      business_id: business_8.id
+    )
+
+    # User 5 reviews
+    review_9 = Review.create!(
+      rating: 3,
+      body: "Good food, slow service.",
+      user_id: 5,
+      business_id: business_9.id
+    )
+
+    review_10 = Review.create!(
+      rating: 4,
+      body: "Memorable dining experience.",
+      user_id: 5,
+      business_id: business_10.id
+    )
+
+    # User 6 reviews
+    review_11 = Review.create!(
+      rating: 5,
+      body: "Exquisite flavors and presentation.",
+      user_id: 6,
+      business_id: business_10.id
+    )
+
+    review_12 = Review.create!(
+      rating: 2,
+      body: "Disappointing overall.",
+      user_id: 6,
+      business_id: business_9.id
+    )
+
+    # User 7 reviews
+    review_13 = Review.create!(
+      rating: 4,
+      body: "Enjoyed the meal and atmosphere.",
+      user_id: 7,
+      business_id: business_1.id
+    )
+
+    review_14 = Review.create!(
+      rating: 3,
+      body: "Decent food, but nothing extraordinary.",
+      user_id: 7,
+      business_id: business_2.id
+    )
+
+    # User 8 reviews
+    review_15 = Review.create!(
+      rating: 5,
+      body: "Exceptional service and flavors!",
+      user_id: 8,
+      business_id: business_3.id
+    )
+
+    review_16 = Review.create!(
+      rating: 1,
+      body: "Worst dining experience ever.",
+      user_id: 8,
+      business_id: business_4.id
+    )
+
+    # User 9 reviews
+    review_17 = Review.create!(
+      rating: 4,
+      body: "Great place for a quick meal.",
+      user_id: 9,
+      business_id: business_5.id
+    )
+
+    review_18 = Review.create!(
+      rating: 2,
+      body: "Disappointing food quality.",
+      user_id: 9,
+      business_id: business_6.id
+    )
+
+    # User 10 reviews
+    review_19 = Review.create!(
+      rating: 5,
+      body: "Absolutely loved the ambiance!",
+      user_id: 10,
+      business_id: business_7.id
+    )
+
+    review_20 = Review.create!(
+      rating: 3,
+      body: "Average dining experience.",
+      user_id: 10,
+      business_id: business_8.id
+    )
+
+
+
 
 
 

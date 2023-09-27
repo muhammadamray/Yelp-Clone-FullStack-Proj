@@ -7,6 +7,7 @@ import Splash from "./components/Splash";
 import Footer from "./components/Footer";
 import Business from "./components/Business";
 import BusinessShow from "./components/BusinessShow";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -27,7 +28,10 @@ function App() {
         </Route>
         <Route exact path="/">
           <Splash />
-          {/* <Navigation /> */}
+        </Route>
+        {/* Add the "Not Found" route as the catch-all route */}
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
       <Footer />

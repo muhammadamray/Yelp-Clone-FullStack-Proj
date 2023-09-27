@@ -19,7 +19,7 @@ const Splash = () => {
     }, 5200);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
     <div className="splash-container">
@@ -36,7 +36,7 @@ const Splash = () => {
           <img
             key={index}
             src={image}
-            alt={`Food Image ${index + 1}`}
+            alt={`Food ${index + 1}`}
             className={`fade ${index === currentImage ? "active" : ""}`}
           />
         ))}

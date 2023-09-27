@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Business from "./components/Business";
 import BusinessShow from "./components/BusinessShow";
 import NotFound from "./components/NotFound";
+import Search from "./components/SearchShowPage/SearchShowPage";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Route path="/restaurants/:businessId">
           <BusinessShow />
         </Route>
+        {/* <Route path='/search'>
+          <Search/>
+        </Route> */}
         <Route path="/restaurants">
           <Business />
         </Route>

@@ -12,12 +12,13 @@ class Api::BusinessesController < ApplicationController
         render 'api/businesses/show'   #changed the render from @business to this one...... any issue?
     end
 
+    def search 
+        query = params[:query]
 
-    
+        @businesses = Business.where('category ILIKE ?', "%#{query}%")
 
-
-
-
+        render 'api/businesses/search'
+    end 
 
     private 
     def business_params

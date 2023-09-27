@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   namespace :api, defaults: { format: :json } do
+    get "businesses/search", to: "businesses#search"
     resources :users, only: :create
     resource :session, only: [:show, :create, :destroy]
     resources :businesses, only: [:index, :show]
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
 
 
   get '*path', to: "static_pages#frontend_index"
+
+
+
 
 end

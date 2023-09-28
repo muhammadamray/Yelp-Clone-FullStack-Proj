@@ -8,7 +8,11 @@ import Footer from "./components/Footer";
 import Business from "./components/Business";
 import BusinessShow from "./components/BusinessShow";
 import NotFound from "./components/NotFound";
-import Search from "./components/SearchShowPage/SearchShowPage";
+// import Search from "./components/SearchShowPage/SearchShowPage";
+// import ReviewForm from "./components/Reviews/ReviewForm";
+// import ReviewShow from "./components/Reviews/ReviewShow";
+import ReviewCreate from "./components/Reviews/ReviewCreate"
+import ReviewEdit from "./components/Reviews/ReviewEdit"
 
 function App() {
   return (
@@ -33,6 +37,8 @@ function App() {
         <Route exact path="/">
           <Splash />
         </Route>
+        <Route exact path="/reviews/create" component={ReviewCreate} />
+        <Route path="/reviews/:reviewId/edit" component={ReviewEdit} />
         {/* Add the "Not Found" route as the catch-all route */}
         <Route path="*">
           <NotFound />

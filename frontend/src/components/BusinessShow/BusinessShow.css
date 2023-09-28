@@ -96,3 +96,19 @@
         max-height: 900px; 
     }
 }
+
+
+
+.review-button{
+    display: flex;
+    align-items: center;
+    background-color: rgb(178, 17, 17);
+    border-radius: 8px;
+    box-shadow: 0 9px 25px hsla(212, 8%, 64%, 0.2);
+    color: #fff;
+    font-size: 20px;
+    height: 50px;
+    justify-content: space-evenly;
+    width: 200px;
+    z-index: 1;
+}

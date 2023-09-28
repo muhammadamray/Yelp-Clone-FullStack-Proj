@@ -13,10 +13,10 @@ export const receiveBusinesses = (data) => {
   };
 };
 
-export const receiveBusiness = (business) => {
+export const receiveBusiness = (data) => {
   return {
     type: RECEIVE_BUSINESS,
-    business,
+    data,
   };
 };
 
@@ -30,6 +30,7 @@ export const getBusiness = (businessId) => {
 export const getBusinesses = createSelector([selectBusinesses], (businesses) =>
   Object.values(businesses)
 );
+
 export const fetchBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/businesses");
 
@@ -44,8 +45,8 @@ export const fetchBusiness = (businessId) => async (dispatch) => {
   const res = await csrfFetch(`/api/businesses/${businessId}`);
 
   if (res.ok) {
-    const business = await res.json();
-    dispatch(receiveBusiness(business));
+    const data = await res.json();
+    dispatch(receiveBusiness(data));
   }
 };
 
@@ -56,7 +57,7 @@ const businessesReducer = (state = {}, action) => {
     case RECEIVE_BUSINESSES:
       return {...action.data.businesses };
     case RECEIVE_BUSINESS:
-      nextState[action.business.id] = action.business;
+      nextState[action.data.business.id] = action.data.business;
       return nextState;
     default:
       return state;

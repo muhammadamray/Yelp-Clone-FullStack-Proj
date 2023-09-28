@@ -22,6 +22,10 @@
 .fade.active {
     opacity: 1;
 }
+
+.splash-text{
+    width: 400px;
+}
   
 .centext {
     display: flex;

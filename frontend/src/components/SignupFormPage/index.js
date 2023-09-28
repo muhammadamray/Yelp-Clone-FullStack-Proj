@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
 import Login from "./Login.png";
-import Logo from "./Logo.png";
+// import Logo from "./Logo.png";
 
 function SignupFormPage() {
   const dispatch = useDispatch();

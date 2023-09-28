@@ -9,7 +9,7 @@ class Api::BusinessesController < ApplicationController
     def show
         @business = Business.find(params[:id])    #.includes(:reviews) when I have reviews 
         # render :show
-        render 'api/businesses/show'   #changed the render from @business to this one...... any issue?
+        render :show   #changed the render from @business to this one...... any issue?
     end
 
     def search 

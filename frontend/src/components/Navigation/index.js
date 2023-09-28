@@ -5,7 +5,7 @@ import ProfileButton from "./ProfileButton";
 import * as sessionActions from "../../store/session";
 import Logo from "./Logo.png";
 import "./Navigation.css";
-import SearchBar from "./NavSearch";
+// import SearchBar from "./NavSearch";
 
 function Navigation() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -47,9 +47,9 @@ function Navigation() {
           </NavLink>
         </div>
 
-        <div className="SearchBar">
+        {/* <div className="SearchBar">
           <SearchBar />
-        </div>
+        </div> */}
 
         <div className="resturants">
           <NavLink exact to="/restaurants" className="restaurants-link">

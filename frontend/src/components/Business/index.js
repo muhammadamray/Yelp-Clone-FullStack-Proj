@@ -4,6 +4,7 @@ import { getBusinesses, fetchBusinesses } from "../../store/business";
 import { Link } from "react-router-dom"; // Import Link from React Router
 import "./Business.css";
 import IndexItem from "./indexItem.js";
+import BusinessMapWrapper from "../NotYelpMap";
 
 const Business = () => {
   const businesses = useSelector(getBusinesses);
@@ -26,7 +27,9 @@ const Business = () => {
             </li>
           ))}
         </ul>
-        <div className="business-pg-map-container">Google Map</div>
+        <div className="business-pg-map-container">
+          <BusinessMapWrapper businesses = {businesses}  />
+        </div>
       </div>
     </>
   );

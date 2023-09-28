@@ -90,6 +90,6 @@ h2 {
     color: #333;
 }
   
-/* business-pg-map-container{
-    height: 100%;
-} */
+business-pg-map-container{
+    border-color: white;
+}

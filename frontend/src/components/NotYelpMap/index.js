@@ -52,7 +52,7 @@ function BusinessMap({
       // Add markers for new businesses
       businesses.forEach((business) => {
         if (markers.current[business.id]) return;
-  
+
         const marker = new window.google.maps.Marker({
           map,
           position: new window.google.maps.LatLng(
@@ -60,15 +60,15 @@ function BusinessMap({
             business.longitude
           ),
           label: {
-            text: business.id.toString(),
+            text: business.id.toString(), // Use the business rating as the label text
             fontWeight: "bold",
           },
           icon: {
-            url: "https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pin2.png",
-            scaledSize: new window.google.maps.Size(32, 48),
+            url: "https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pin2.png", // External URL to your custom pin icon
+            scaledSize: new window.google.maps.Size(32, 48), // Adjust the size of the custom pin icon
           },
         });
-  
+
         // Create a content string with the business name and an image
         const content = `
           <div style="font-family: Helvetica;">
@@ -76,39 +76,53 @@ function BusinessMap({
             <p style="font-weight: bold;">${business.name}</p>
           </div>
         `;
-  
+
         // Create an info window with the custom content
         const infoWindow = new window.google.maps.InfoWindow({
           content,
+          disableAutoPan: true, // Disable the automatic panning behavior
+          closeButton: false, // Disable the close button????????????????????????????????????????????
         });
-  
+
         // Add event listeners for hover effect
         marker.addListener("mouseover", () => {
+          // Open the info window when hovering over the marker
           infoWindow.open(map, marker);
+          // Increase marker size
+          marker.setIcon({
+            url: "https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pin2.png",
+            scaledSize: new window.google.maps.Size(40, 60),
+          });
         });
-  
+
         marker.addListener("mouseout", () => {
+          // Close the info window when moving the mouse away
           infoWindow.close();
+          // Reset marker size
+          marker.setIcon({
+            url: "https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pin2.png",
+            scaledSize: new window.google.maps.Size(32, 48),
+          });
         });
-  
-        // Add a click event listener to redirect to the show page
+
         marker.addListener("click", () => {
-          history.push(`/restaurants/${business.id}`); // Replace with your show page URL
+          // Redirect to the business show page when clicking the marker
+          history.push(`/restaurants/${business.id}`);
         });
-  
+
         Object.entries(markerEventHandlers).forEach(([event, handler]) => {
           marker.addListener(event, () => handler(business));
         });
         markers.current[business.id] = marker;
       });
-  
+
       // Remove markers for old businesses
       Object.entries(markers.current).forEach(([businessId, marker]) => {
         if (
           businesses.some((business) => business.id.toString() === businessId)
         )
           return;
-  
+
         marker.setMap(null);
         delete markers.current[businessId];
       });

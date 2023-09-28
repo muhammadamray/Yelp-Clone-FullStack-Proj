@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses, fetchBusinesses } from "../../store/business";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 import "./Business.css";
 import IndexItem from "./indexItem.js";
 import BusinessMapWrapper from "../NotYelpMap";
@@ -9,6 +9,7 @@ import BusinessMapWrapper from "../NotYelpMap";
 const Business = () => {
   const businesses = useSelector(getBusinesses);
   const dispatch = useDispatch();
+  const [highlightedBusiness, setHighlightedBusiness] = useState(null); // Add state for highlighted business ID
 
   useEffect(() => {
     dispatch(fetchBusinesses());
@@ -19,8 +20,11 @@ const Business = () => {
       <div className="business-pg-container">
         <ul className="businesses-container">
           {businesses.map((business) => (
-            <li key={business.id}>
-              {/* Wrap IndexItem with Link */}
+            <li
+              key={business.id}
+              onMouseEnter={() => setHighlightedBusiness(business.id)} // Set the highlighted business on mouse enter
+              onMouseLeave={() => setHighlightedBusiness(null)} // Reset the highlighted business on mouse leave
+            >
               <Link to={`/restaurants/${business.id}`}>
                 <IndexItem business={business} photo={business.photoURL} />
               </Link>
@@ -28,7 +32,10 @@ const Business = () => {
           ))}
         </ul>
         <div className="business-pg-map-container">
-          <BusinessMapWrapper businesses = {businesses}  />
+          <BusinessMapWrapper
+            businesses={businesses}
+            highlightedBusiness={highlightedBusiness} // Pass the highlighted business to the map
+          />
         </div>
       </div>
     </>

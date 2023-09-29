@@ -48,6 +48,13 @@
 .restaurants-link {
     /* background-color: green; */
     text-decoration: none;
+    color: #d2d0d5;
+    /* font-weight: bold; */
+    font-size: 16px;
+    border: 1px solid gray;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+ 
 }
 
 #sessionLinks{

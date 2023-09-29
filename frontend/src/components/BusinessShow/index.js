@@ -77,8 +77,7 @@ const BusinessShow = () => {
             <button className="review-button">Create Review</button>
           </NavLink> : null }
         </div>
-        {/* <div>{console.log(reviews)}</div> */}
-        {/* <div>{reviews.map(review => <ReviewIndexItem review = {review} />)}</div> */}
+       
         <ReviewIndex reviews={reviews} />
       </div>
     </div>

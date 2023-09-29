@@ -6,7 +6,7 @@
     justify-content: center;
     /* height: 100vh;  */
     background-color: #f0f0f0; 
-    margin-top: 40px;
+    margin-top: 2.5em;
 }
 
 .show-business-image {
@@ -42,12 +42,13 @@
 }
 
 .extra-content {
-    height: 500px;
+    min-height: 31.25em; 
     width: 100%;
     padding-left: 8em;
     padding-bottom: 1em;
     margin: 2rem;
 }
+/* changed the min height from 31.25em */
 
 .claim-category {
     display: flex;

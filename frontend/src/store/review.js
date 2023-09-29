@@ -37,7 +37,6 @@ export const getReviews = (state, businessId) => {
 
 export const fetchReviews = () => async (dispatch) => {
   const res = await csrfFetch("/api/reviews");
-
   if (res.ok) {
     const data = await res.json();
 

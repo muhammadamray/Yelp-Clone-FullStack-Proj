@@ -6,7 +6,7 @@ import { getBusiness, fetchBusiness } from "../../store/business";
 // import { useLocation } from "react-router-dom";
 import "./BusinessShow.css";
 import check from "./check.png";
-import { getReviews } from "../../store/review";
+import { fetchReviews, getReviews } from "../../store/review";
 // import ReviewIndexItem from "../Reviews/ReviewIndexItem";
 import ReviewIndex from "../Reviews/ReviewIndex";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";

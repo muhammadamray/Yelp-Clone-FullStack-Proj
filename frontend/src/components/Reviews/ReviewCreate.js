@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBusiness } from "../../store/business";
-import { createReview } from "../../store/review";
+import { createReview, fetchReviews } from "../../store/review";
 
 const ReviewCreate = () => {
   const [rating, setRating] = useState(-1);
@@ -67,8 +67,8 @@ const ReviewCreate = () => {
         Submit Review
       </div>
       <div className="error-container">
-        {errorRating? <div>xlin0000000000</div> : null}
-        {errorReview? <div>xlinnnnnn</div> : null}
+        {errorRating? <div>Please Choose a Rating</div> : null}
+        {errorReview? <div>Please Enter a Review</div> : null}
       </div>
     </>
   );

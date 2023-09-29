@@ -43,10 +43,27 @@
 
 .reviews-container {
     /* background-color: white; */
+    margin-top: 1em;
 }
 
 .review-container {
     margin-bottom: 2em;
+}
+
+.user-info-container span {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.rating-time-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+    color:rgb(110, 110, 110);
+}
+
+.review-rating {
+    margin-right: 1em;
 }
 
 .edit-delete-btn-gp {
@@ -59,5 +76,13 @@
 }
 
 .delete-btn {
+
+}
+
+
+.error-container{
+    width: 50%;
+    margin: 0px auto;
+    color: red;
 
 }

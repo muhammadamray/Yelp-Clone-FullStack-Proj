@@ -11,9 +11,9 @@
     height: 90vh;
 }
 
-.business-pg-map-container {
-    border: 1px solid green;
-}
+/* .business-pg-map-container {
+
+} */
 
 .businesses-container::-webkit-scrollbar {
     display: none;

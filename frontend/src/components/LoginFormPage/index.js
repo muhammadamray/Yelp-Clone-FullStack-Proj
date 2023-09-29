@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import Login from "./Login.png";
-import Logo from "./Logo.png";
+// import Logo from "./Logo.png";
 
 function LoginFormPage() {
   const dispatch = useDispatch();

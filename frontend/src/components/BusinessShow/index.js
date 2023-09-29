@@ -23,7 +23,9 @@ const BusinessShow = () => {
 
   const business = useSelector(getBusiness(businessId));
   const reviews = useSelector((state) => getReviews(state, businessId));
+  const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(fetchBusiness(businessId));
@@ -71,9 +73,9 @@ const BusinessShow = () => {
 
       <div className="extra-content">
         <div>
-          <NavLink to="/reviews/create">
+          {currUser?  <NavLink to={`/restaurants/${businessId}/reviews/create`}>
             <button className="review-button">Create Review</button>
-          </NavLink>
+          </NavLink> : null }
         </div>
         {/* <div>{console.log(reviews)}</div> */}
         {/* <div>{reviews.map(review => <ReviewIndexItem review = {review} />)}</div> */}

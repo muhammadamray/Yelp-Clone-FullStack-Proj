@@ -44,7 +44,8 @@
 .extra-content {
     height: 500px;
     width: 100%;
-    background-color: rgb(49, 49, 88);
+    padding-left: 8em;
+    padding-bottom: 1em;
 }
 
 .claim-category {

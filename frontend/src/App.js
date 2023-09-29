@@ -11,21 +11,21 @@ import NotFound from "./components/NotFound";
 // import Search from "./components/SearchShowPage/SearchShowPage";
 // import ReviewForm from "./components/Reviews/ReviewForm";
 // import ReviewShow from "./components/Reviews/ReviewShow";
-import ReviewCreate from "./components/Reviews/ReviewCreate"
-import ReviewEdit from "./components/Reviews/ReviewEdit"
+import ReviewCreate from "./components/Reviews/ReviewCreate";
+import ReviewEdit from "./components/Reviews/ReviewEdit";
 
 function App() {
   return (
     <>
       <Navigation />
       <Switch>
-        <Route path="/restaurants/:businessId">
+        <Route exact path="/restaurants/:businessId">
           <BusinessShow />
         </Route>
         {/* <Route path='/search'>
           <Search/>
         </Route> */}
-        <Route path="/restaurants">
+        <Route exact path="/restaurants">
           <Business />
         </Route>
         <Route path="/login">
@@ -37,7 +37,7 @@ function App() {
         <Route exact path="/">
           <Splash />
         </Route>
-        <Route exact path="/reviews/create" component={ReviewCreate} />
+        <Route exact path="/restaurants/:businessId/reviews/create" component={ReviewCreate} />
         <Route path="/reviews/:reviewId/edit" component={ReviewEdit} />
         {/* Add the "Not Found" route as the catch-all route */}
         <Route path="*">

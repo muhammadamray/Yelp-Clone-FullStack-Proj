@@ -93,7 +93,7 @@ export const updateReview = (review) => async (dispatch) => {
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-  const res = await fetch(`api/reviews/${reviewId}`, {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
   });
 
@@ -109,8 +109,7 @@ const reviewsReducer = (state = {}, action) => {
     case RECEIVE_REVIEWS:
       return { ...nextState, ...action.data.reviews };
     case RECEIVE_REVIEW:
-      nextState[action.data.review.id] = action.data.review;
-      return nextState;
+      return {...state, [action.data.id]: action.data};
     case REMOVE_REVIEW:
       delete nextState[action.reviewId];
       return nextState;

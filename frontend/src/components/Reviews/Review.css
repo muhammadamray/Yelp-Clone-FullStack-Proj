@@ -1,0 +1,63 @@
+.curr-rest-name {
+    margin-top: 6vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+.curr-review-container {
+    margin: 2vw auto;
+    width: 50%;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.review-input {
+    width: 100%;
+    height: 15vw;
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.post-review-btn {
+    color: white;
+    background-color: rgb(224, 7, 7);
+    width: fit-content;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vw;
+    font-size: 1.5vw;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+.post-review-btn:hover {
+    background-color: rgb(244, 13, 21);
+}
+
+.reviews-container {
+    /* background-color: white; */
+}
+
+.review-container {
+    margin-bottom: 2em;
+}
+
+.edit-delete-btn-gp {
+    margin-top: 0.5em;
+}
+
+.edit-btn {
+    text-decoration: none;
+    margin-right: 1em;
+}
+
+.delete-btn {
+
+}

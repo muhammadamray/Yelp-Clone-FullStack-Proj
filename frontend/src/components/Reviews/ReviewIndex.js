@@ -10,7 +10,7 @@ const ReviewsIndex = ({reviews}) => {
 
     return (
         <>
-            <ul>
+            <ul className='reviews-container'>
                 {reviews.map(review => {
                     return <ReviewIndexItem key={review.id} review={review} />
                 })}

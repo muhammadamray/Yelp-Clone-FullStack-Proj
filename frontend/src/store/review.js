@@ -26,11 +26,12 @@ export const getReview = (reviewId) => (state) => {
 };
 
 export const getReviews = (state, businessId) => {
-  if (state.reviews){
+  if (state.reviews) {
     let allReviews = Object.values(state.reviews);
-    let filtered = allReviews.filter( (review) => review.businessId.toString() === businessId ); 
-    // debugger
-    return filtered
+    let filtered = allReviews.filter(
+      (review) => review.businessId.toString() === businessId
+    );
+    return filtered;
   }
   return [];
 };
@@ -108,12 +109,12 @@ const reviewsReducer = (state = {}, action) => {
     case RECEIVE_REVIEWS:
       return { ...nextState, ...action.data.reviews };
     case RECEIVE_REVIEW:
-      return {...state, [action.data.id]: action.data};
+      return { ...state, [action.data.id]: action.data };
     case REMOVE_REVIEW:
       delete nextState[action.reviewId];
       return nextState;
     case RECEIVE_BUSINESS:
-      return { ...state, ...action.data.reviews}
+      return { ...state, ...action.data.reviews };
     default:
       return state;
   }

@@ -11,7 +11,6 @@ const IndexItem = ({ business }) => {
     <Link to={`/restaurants/${business.id}`} className="business-link">
       <div className="business-container">
         <div className="business-image-container">
-          {console.log(business.photoUrl)}
           <img
             src={business.photoUrl}
             alt={business.name}

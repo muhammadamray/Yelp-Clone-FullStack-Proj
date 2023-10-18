@@ -8,7 +8,7 @@ const ReviewEdit = () => {
   const location = useLocation();
   const reviewId = location.pathname.split("/")[2];
   const dispatch = useDispatch();
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(1);
   const [reviewText, setReviewText] = useState("");
 
   useEffect(() => {

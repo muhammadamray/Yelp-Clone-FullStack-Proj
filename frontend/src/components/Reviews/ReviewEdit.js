@@ -13,21 +13,27 @@ const ReviewEdit = () => {
   const review = useSelector(getReview(reviewId));
   const [rating, setRating] = useState(review?.rating);
   const [reviewText, setReviewText] = useState(review?.body);
-  const [businessId, setBusinessId] = useState(review?.businessId)
-  const [userId, setUserId] = useState(review?.userId)
+  const [businessId, setBusinessId] = useState(review?.businessId);
+  const [userId, setUserId] = useState(review?.userId);
   const history = useHistory();
-
-
 
   useEffect(() => {
     dispatch(fetchReview(reviewId));
+    // setBusinessId(review.businessId);
   }, [reviewId, dispatch]);
+
+  useEffect(() => {
+    setBusinessId(review?.businessId);
+  }, [review]);
+
+  console.log(review);
+  console.log(review?.businessId);
 
   // const { businessId } = useParams();
   // const currUser = useSelector((state) => state.session.user);
 
   const postReview = (e, rating, reviewText) => {
-    console.log("hello")
+    console.log("hello");
     // if (rating === -1) {
     //   setErrorRating(true);
     // } else {
@@ -39,8 +45,8 @@ const ReviewEdit = () => {
     // } else {
     //   setErrorReview(false);
     // }
-    console.log(rating)
-    console.log(reviewText.length)
+    console.log(rating);
+    console.log(reviewText.length);
     if (rating > 0 && reviewText.length >= 5) {
       const reviewObject = {
         id: reviewId,
@@ -54,8 +60,6 @@ const ReviewEdit = () => {
       history.push(`/restaurants/${businessId}`);
     }
   };
-
-  
 
   return (
     <div className="container" style={{ marginTop: "10vw" }}>

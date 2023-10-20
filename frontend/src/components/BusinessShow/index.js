@@ -10,6 +10,7 @@ import { fetchReviews, getReviews } from "../../store/review";
 // import ReviewIndexItem from "../Reviews/ReviewIndexItem";
 import ReviewIndex from "../Reviews/ReviewIndex";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import Rating from "@mui/material/Rating";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
@@ -50,7 +51,7 @@ const BusinessShow = () => {
 
           <div className="business-details">
             <div className="business-rating">
-              ⭐⭐⭐⭐⭐{" "}
+             < Rating value={business?.rating} precision={0.1} readOnly/>{" "}
               <span className="rating-count">(number of reviews)</span>
             </div>
 

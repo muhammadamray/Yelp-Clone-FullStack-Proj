@@ -9,6 +9,8 @@ class Api::BusinessesController < ApplicationController
     def show
         @business = Business.find(params[:id])    #.includes(:reviews) when I have reviews 
         # render :show
+
+        @business.calculate_updated_rating
         render :show   #changed the render from @business to this one...... any issue?
     end
 

@@ -34,13 +34,13 @@ class Business < ApplicationRecord
     # dependent: :destroy
 
     def calculate_updated_rating
-        ratings_sum = reviews.sum(:rating) # Sum of all ratings
-        reviewers_count = reviewers.count   # Number of reviewers
-      
-        # Handle the case when there are no reviewers to avoid division by zero
-        return update(rating: 0) if reviewers_count.zero?
-      
-        new_average_rating = ratings_sum / reviewers_count.to_f
+        ratings_sum = reviews.sum(:rating)    # Sum of all ratings
+        reviews_count = reviews.count         # Number of reviews
+    
+        # Handle the case when there are no reviews to avoid division by zero
+        return update(rating: 0) if reviews_count.zero?
+    
+        new_average_rating = ratings_sum / reviews_count.to_f
         update(rating: new_average_rating.round(2))
     end
       

@@ -23,7 +23,7 @@ function LoginFormPage() {
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
-          console.log(data);
+          // console.log(data);
           data = await res.clone().json();
         } catch {
           data = await res.text(); // Will hit this case if, e.g., server is down

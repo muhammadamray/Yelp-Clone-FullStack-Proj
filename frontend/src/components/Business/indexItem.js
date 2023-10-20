@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 import "./Business.css";
+import Rating from "@mui/material/Rating";
 
 const IndexItem = ({ business }) => {
   // console.log(business);
@@ -22,7 +23,7 @@ const IndexItem = ({ business }) => {
           <h2>{business.name}</h2>
 
           <div className="business-rating">
-            ⭐⭐⭐⭐⭐ <span className="rating-count">number of ratings)</span>
+          < Rating value={business?.rating} precision={0.1} readOnly/> <span className="rating-count">number of ratings)</span>
           </div>
 
           <div className="business-info">

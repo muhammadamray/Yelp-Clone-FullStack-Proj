@@ -12,6 +12,7 @@ const ReviewEdit = () => {
   const dispatch = useDispatch();
   const review = useSelector(getReview(reviewId));
   const [rating, setRating] = useState(review?.rating);
+  const [newRating, setNewRating] = useState(review?.rating);
   const [reviewText, setReviewText] = useState(review?.body);
   const [businessId, setBusinessId] = useState(review?.businessId);
   const [userId, setUserId] = useState(review?.userId);
@@ -26,14 +27,11 @@ const ReviewEdit = () => {
     setBusinessId(review?.businessId);
   }, [review]);
 
-  console.log(review);
-  console.log(review?.businessId);
-
   // const { businessId } = useParams();
   // const currUser = useSelector((state) => state.session.user);
 
   const postReview = (e, rating, reviewText) => {
-    console.log("hello");
+    // console.log("hello");
     // if (rating === -1) {
     //   setErrorRating(true);
     // } else {
@@ -45,18 +43,21 @@ const ReviewEdit = () => {
     // } else {
     //   setErrorReview(false);
     // }
-    console.log(rating);
-    console.log(reviewText.length);
-    if (rating > 0 && reviewText.length >= 5) {
+    // console.log(rating);
+    // console.log(reviewText?.length);
+    if (
+      (rating > 0 && reviewText?.length >= 5) ||
+      (review?.rating > 0 && review?.body.length >= 5)
+    ) {
       const reviewObject = {
         id: reviewId,
-        rating: rating,
-        body: reviewText,
+        rating: rating ? rating : review?.rating,
+        body: reviewText ? reviewText : review?.body,
         user_id: userId,
         business_id: businessId,
       };
       dispatch(updateReview(reviewObject));
-      console.log(businessId);
+      // console.log(businessId);
       history.push(`/restaurants/${businessId}`);
     }
   };
@@ -65,13 +66,21 @@ const ReviewEdit = () => {
     <div className="container" style={{ marginTop: "10vw" }}>
       {/* <div className="curr-rest-name">{currRest?.name}</div>   */}
       <div className="curr-review-container">
-        <Rating
-          value={review?.rating}
-          onChange={(e) => {
-            setRating(e.target.value);
-            console.log(e.target.value);
-          }}
-        />
+        {review?.rating ? (
+          <Rating
+            // value={rating ? rating : currReview?.rating}
+
+            value={rating ? parseInt(rating) : review?.rating}
+            // value={review?.rating}
+            onChange={(e) => {
+              setRating(e.target.value);
+              // console.log(e.target.value);
+            }}
+            onChangeActive={(e, m) => {
+              setNewRating(m);
+            }}
+          />
+        ) : null}
         <div>
           <textarea
             className="review-input"

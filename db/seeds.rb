@@ -116,7 +116,7 @@ ApplicationRecord.transaction do
     )
 
     business_4.photo.attach(
-      io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/Hells.webp"),
+      io: URI.open("https://newseeds.s3.amazonaws.com/Hells.webp"),
       filename: "Hells.webp"
     )
     

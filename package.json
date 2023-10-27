@@ -2,7 +2,6 @@
   "name": "yelp-clone-fullstack-proj",
   "version": "1.0.0",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
-  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
@@ -21,6 +20,6 @@
   },
   "homepage": "https://github.com/muhammadamray/Yelp-Clone-FullStack-Proj#readme",
   "engines": {
-    "node": "16.x"
+    "node": "18.18.0"
   }
 }

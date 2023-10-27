@@ -183,7 +183,7 @@ ApplicationRecord.transaction do
       price_range: "$$$",
       phone_number: "212-582-5100",
       category: "Italian",
-      rating: 4.5
+      rating: 4.1
     )
     business_8.photo.attach(
       io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/marea.jpeg"),
@@ -201,7 +201,7 @@ ApplicationRecord.transaction do
       price_range: "$$",
       phone_number: "718-258-1367",
       category: "Pizza",
-      rating: 4.7
+      rating: 3.4
     )
     business_9.photo.attach(
       io: URI.open("https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/pizzzaa.jpeg"),
@@ -218,7 +218,7 @@ ApplicationRecord.transaction do
       price_range: "$$",
       phone_number: "212-941-7994",
       category: "Pizza",
-      rating: 4.6
+      rating: 4
     )
 
     business_10.photo.attach(

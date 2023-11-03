@@ -3,14 +3,14 @@ import thunk from "redux-thunk";
 import session from "./session";
 import businessesReducer from "./business";
 import reviewsReducer from "./review"
-// import searchReducer from "./search"
+import searchReducer from "./search"
 
 const rootReducer = combineReducers({
   businesses: businessesReducer,
   session,
   reviews: reviewsReducer,
+  search: searchReducer,
 });
-// search: searchReducer,
 
 let enhancer;
 

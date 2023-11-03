@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Business from "./components/Business";
 import BusinessShow from "./components/BusinessShow";
 import NotFound from "./components/NotFound";
-// import Search from "./components/SearchShowPage/SearchShowPage";
+import Search from "./components/SearchShowPage/SearchShowPage";
 // import ReviewForm from "./components/Reviews/ReviewForm";
 // import ReviewShow from "./components/Reviews/ReviewShow";
 import ReviewCreate from "./components/Reviews/ReviewCreate";
@@ -22,9 +22,9 @@ function App() {
         <Route exact path="/restaurants/:businessId">
           <BusinessShow />
         </Route>
-        {/* <Route path='/search'>
+        <Route path='/search'>
           <Search/>
-        </Route> */}
+        </Route>
         <Route exact path="/restaurants">
           <Business />
         </Route>

@@ -22,8 +22,11 @@ const IndexItem = ({ business }) => {
         <div className="business-details">
           <h2>{business.name}</h2>
 
-          <div className="business-rating">
-          < Rating value={business?.rating} precision={0.1} readOnly/> <span className="rating-count">number of ratings)</span>
+          <div className="business-rating-container">
+            <div className="business-rating">
+              <Rating value={business?.rating} precision={0.1} readOnly />
+            </div>
+            {business?.rating}
           </div>
 
           <div className="business-info">

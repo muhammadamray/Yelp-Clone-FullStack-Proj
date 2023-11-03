@@ -17,9 +17,9 @@ class Api::BusinessesController < ApplicationController
     def search 
         query = params[:query]
 
-        @businesses = Business.where('category ILIKE ?', "%#{query}%")
+        @businesses = Business.where('name ILIKE ?', "%#{query}%")
 
-        render 'api/businesses/search'
+        render :search
     end 
 
     private 

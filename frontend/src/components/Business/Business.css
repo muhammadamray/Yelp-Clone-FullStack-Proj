@@ -11,9 +11,7 @@
     height: 90vh;
 }
 
-/* .business-pg-map-container {
 
-} */
 
 .businesses-container::-webkit-scrollbar {
     display: none;
@@ -58,10 +56,19 @@ h2 {
     color: #333;
 }
   
-.business-rating {
+.business-rating-container {
+    display: flex;
+    align-items: center; /* Align the content vertically in the container */
     font-size: 16px;
     margin: 5px 0;
     color: #f15b2a;
+}
+
+.business-rating {
+    /* font-size: 16px;
+    margin: 5px 0;
+    color: #f15b2a; */
+    margin-right: 5px;
 }
   
 .rating-count {

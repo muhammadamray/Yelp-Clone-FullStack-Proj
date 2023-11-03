@@ -35,10 +35,12 @@
     font-weight: bold;
 }
 
-.rating-count {
-    margin-left: 15px;
+.business-rating-cont {
+    display: flex;
+    align-items: center; /* Align the content vertically in the container */
+    font-size: 16px;
+    margin: 5px 0;
     color: white;
-    font-size: 17px;
 }
 
 .extra-content {

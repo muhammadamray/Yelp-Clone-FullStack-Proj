@@ -10,7 +10,7 @@ const Business = () => {
   const businesses = useSelector(getBusinesses);
   const dispatch = useDispatch();
   const [highlightedBusiness, setHighlightedBusiness] = useState(null); // Add state for highlighted business ID
-
+  console.log(businesses, "hello")
   useEffect(() => {
     dispatch(fetchBusinesses());
   }, [dispatch]);

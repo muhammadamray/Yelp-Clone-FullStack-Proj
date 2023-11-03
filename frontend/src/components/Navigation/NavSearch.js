@@ -7,8 +7,13 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function SearchBar() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const searchResults = useSelector((state) => Object.values(state.search));
-//   debugger
+const searchResults = useSelector((state) => {
+  if (state.search) {
+    return Object.values(state.search);
+  }
+  return [];
+});
+
   const [searchText, setSearchText] = useState("");
   // const [timer, setTimer] = useState(0);
 
@@ -17,16 +22,17 @@ function SearchBar() {
     setSearchText(query);
     // clearTimeout(timer);
     if (query.trim() !== "") {
-      dispatch(fetchSearchResults(query));
+      console.log("justin")
       // setTimer(setTimeout(() => dispatch(fetchSearchResults(query)), 300));
     } else {
       dispatch(clearSearchResults());
     }
   }
-
+  
   function handleSubmit(e) {
     e.preventDefault();
     if (searchText.trim() !== "") {
+      dispatch(fetchSearchResults(searchText));
       setSearchText("");
       history.push(`/search?query=${searchText}`);
     }
@@ -35,7 +41,7 @@ function SearchBar() {
   function handleLinkClick(id) {
     return (e) => {
       e.preventDefault();
-      history.push(`/businesses/${id}`);
+      history.push(`/restaurants/${id}`);
       dispatch(clearSearchResults());
       setSearchText("");
     };
@@ -62,7 +68,8 @@ function SearchBar() {
                 className="search-dropdown-item"
                 key={result.id}
               >
-                {result.category}
+                {/* {result.category} */}
+                {result.name}
               </li>
             );
           })}

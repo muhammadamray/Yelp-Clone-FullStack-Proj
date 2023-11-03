@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 // Link,
 import { useDispatch, useSelector } from "react-redux";
 import { getBusiness, fetchBusiness } from "../../store/business";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./BusinessShow.css";
 import check from "./check.png";
 import { fetchReviews, getReviews } from "../../store/review";
@@ -11,6 +11,7 @@ import { fetchReviews, getReviews } from "../../store/review";
 import ReviewIndex from "../Reviews/ReviewIndex";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Rating from "@mui/material/Rating";
+import RestaurantMap from "../RestaurantMap";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
@@ -19,14 +20,13 @@ const BusinessShow = () => {
   // TODO: businessId is undefined
   // use params arent working............
 
-  // const location = useLocation();
-  // const restId = location.pathname.split("/")[2];
+  const location = useLocation();
+  const restId = location.pathname.split("/")[2];
 
   const business = useSelector(getBusiness(businessId));
   const reviews = useSelector((state) => getReviews(state, businessId));
   const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     dispatch(fetchBusiness(businessId));
@@ -50,9 +50,11 @@ const BusinessShow = () => {
           <h1 id="bus-name">{business.name}</h1>
 
           <div className="business-details">
-            <div className="business-rating">
-             < Rating value={business?.rating} precision={0.1} readOnly/>{" "}
-              <span className="rating-count">(number of reviews)</span>
+            <div className="business-rating-cont">
+              <div className="business-rating">
+                <Rating value={business?.rating} precision={0.1} readOnly />
+              </div>
+              {business?.rating}
             </div>
 
             <div className="claim-category">
@@ -73,12 +75,29 @@ const BusinessShow = () => {
       </div>
 
       <div className="extra-content">
-        <div>
-          {currUser?  <NavLink to={`/restaurants/${businessId}/reviews/create`}>
-            <button className="review-button">Create Review</button>
-          </NavLink> : null }
+        <div className="res-map">
+          <h1 id="locationHours">Location & Hours</h1>
+          {window.google ? (
+            <div>
+              <RestaurantMap
+                latitude={business?.latitude}
+                longitude={business?.longitude}
+              />
+            </div>
+          ) : (
+            <p>Loading the map...</p> // You can customize this message as needed
+          )}
+          {`${business.city}, ${business.state}, ${business.zipCode}`}
         </div>
-       
+
+        <div>
+          {currUser ? (
+            <NavLink to={`/restaurants/${businessId}/reviews/create`}>
+              <button className="review-button">Create Review</button>
+            </NavLink>
+          ) : null}
+        </div>
+
         <ReviewIndex reviews={reviews} />
       </div>
     </div>

@@ -14,7 +14,6 @@ const Business = (props) => {
   const [businesses, setBusinesses] = useState(props.searchResults);
   const dispatch = useDispatch();
   const [highlightedBusiness, setHighlightedBusiness] = useState(null); // Add state for highlighted business ID
-    // console.log(businesses2, "bus2")
   useEffect(() => {
     dispatch(fetchBusinesses());
   }, [dispatch]);

@@ -1,18 +1,31 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { clearSearchResults, fetchSearchResults } from "../../store/search";
+import {
+  clearSearchResults,
+  fetchSearchResults,
+  fetchSearchSuggestions,
+} from "../../store/search";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function SearchBar() {
   const dispatch = useDispatch();
   const history = useHistory();
-const searchResults = useSelector((state) => {
-  if (state.search) {
-    return Object.values(state.search);
-  }
-  return [];
-});
+  const searchResults = useSelector((state) => {
+    if (state.search.results) {
+      return Object.values(state.search.results);
+    }
+    return [];
+  });
+
+  const searchSuggestions = useSelector((state) => {
+    if (state.search.suggestions) {
+      return Object.values(state.search.suggestions);
+    }
+    return [];
+  });
+
+  // const searchResults = useSelector((state) => Object.values(state.search));
 
   const [searchText, setSearchText] = useState("");
   // const [timer, setTimer] = useState(0);
@@ -22,13 +35,14 @@ const searchResults = useSelector((state) => {
     setSearchText(query);
     // clearTimeout(timer);
     if (query.trim() !== "") {
-      console.log("justin")
+      dispatch(fetchSearchSuggestions(searchText));
+      // console.log("justin")
       // setTimer(setTimeout(() => dispatch(fetchSearchResults(query)), 300));
     } else {
       dispatch(clearSearchResults());
     }
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     if (searchText.trim() !== "") {
@@ -61,7 +75,7 @@ const searchResults = useSelector((state) => {
 
       {searchText && (
         <ul id="search-dropdown">
-          {searchResults.map((result) => {
+          {searchSuggestions.map((result) => {
             return (
               <li
                 onClick={handleLinkClick(result.id)}

@@ -11,7 +11,9 @@ import { fetchReviews, getReviews } from "../../store/review";
 import ReviewIndex from "../Reviews/ReviewIndex";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Rating from "@mui/material/Rating";
-import RestaurantMap from "../RestaurantMap";
+// import RestaurantMap from "../RestaurantMap";
+// import BusinessMap from "../../components/NotYelpMap"
+import YelpMap from "../YelpMap";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
@@ -23,14 +25,14 @@ const BusinessShow = () => {
   const location = useLocation();
   const restId = location.pathname.split("/")[2];
 
-  const business = useSelector(getBusiness(businessId));
-  const reviews = useSelector((state) => getReviews(state, businessId));
+  const business = useSelector(getBusiness(restId));
+  const reviews = useSelector((state) => getReviews(state, restId));
   const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchBusiness(businessId));
-  }, [businessId, dispatch]);
+    dispatch(fetchBusiness(restId));
+  }, [restId, dispatch]);
 
   // Handle business not found
   if (!business) {
@@ -77,7 +79,7 @@ const BusinessShow = () => {
       <div className="extra-content">
         <div className="res-map">
           <h1 id="locationHours">Location & Hours</h1>
-          {window.google ? (
+          {/* {window.google ? (
             <div>
               <RestaurantMap
                 latitude={business?.latitude}
@@ -86,7 +88,11 @@ const BusinessShow = () => {
             </div>
           ) : (
             <p>Loading the map...</p> // You can customize this message as needed
-          )}
+          )} */}
+          <YelpMap id = "bsmap"
+            businesses={[business]}
+            mapOptions={{ center: { lat: business.latitude, lng: business.longitude } }}
+          />
           {`${business.city}, ${business.state}, ${business.zipCode}`}
         </div>
 

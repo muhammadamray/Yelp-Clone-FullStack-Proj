@@ -9,20 +9,20 @@ import SearchIndex from "./SearchIndex"
 const Search = () => {
     const dispatch = useDispatch();
     const location = useLocation();
-    const searchResults = useSelector((state) => state.search);
+    const searchResults = useSelector((state) => state.search.results);
     const searchParams = new URLSearchParams(location.search);
     const query = searchParams.get("query");
-    const noResults = Object.keys(searchResults).length === 0;
+    // const noResults = Object.keys(searchResults).length === 0;
 
     useEffect(() => {
         if (query) {
             dispatch(fetchSearchResults(query));
         }
     }, []);
-
+    console.log(searchResults, "hiiiiiii")
     return(
         <div className='main-content-container'>
-            {noResults && 
+            {!searchResults?.length && 
                 <div id='results-for'>No results containing "{query}"</div>
             }
 

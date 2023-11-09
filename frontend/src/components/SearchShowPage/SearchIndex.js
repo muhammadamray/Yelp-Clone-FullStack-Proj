@@ -11,7 +11,8 @@ const Business = (props) => {
   console.log(props, "string");
   //   const businesses = useSelector(getBusinesses);
 //   const businesses = useSelector((state) => Object.values(state.search));
-  const [businesses, setBusinesses] = useState(props.searchResults);
+  // const [businesses, setBusinesses] = useState(props.searchResults);
+  const businesses = props.searchResults
   const dispatch = useDispatch();
   const [highlightedBusiness, setHighlightedBusiness] = useState(null); // Add state for highlighted business ID
   useEffect(() => {

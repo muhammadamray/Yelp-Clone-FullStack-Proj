@@ -25,6 +25,10 @@ class Business < ApplicationRecord
 
     has_one_attached :photo
 
+    has_many :reservations,
+    dependent: :destroy
+
+
     has_many :reviews,
     dependent: :destroy
 

@@ -14,6 +14,7 @@ import Rating from "@mui/material/Rating";
 // import RestaurantMap from "../RestaurantMap";
 // import BusinessMap from "../../components/NotYelpMap"
 import YelpMap from "../YelpMap";
+import ReservationCreate from "../Reservation/ReservationCreate";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
@@ -77,34 +78,42 @@ const BusinessShow = () => {
       </div>
 
       <div className="extra-content">
-        <div className="res-map">
-          <h1 id="locationHours">Location & Hours</h1>
-          {/* {window.google ? (
-            <div>
-              <RestaurantMap
-                latitude={business?.latitude}
-                longitude={business?.longitude}
+        <div id="map-hours-rev">
+          <div id="map-hours">
+            <div className="res-map">
+              {/* <h1 id="locationHours">Location & Hours</h1> */}
+              <YelpMap
+                id="bsmap"
+                businesses={[business]}
+                mapOptions={{
+                  center: { lat: business.latitude, lng: business.longitude },
+                }}
               />
+              {`${business.city}, ${business.state}, ${business.zipCode}`}
             </div>
-          ) : (
-            <p>Loading the map...</p> // You can customize this message as needed
-          )} */}
-          <YelpMap id = "bsmap"
-            businesses={[business]}
-            mapOptions={{ center: { lat: business.latitude, lng: business.longitude } }}
-          />
-          {`${business.city}, ${business.state}, ${business.zipCode}`}
-        </div>
+            <div className="week-schedule">
+              <p>Mon 11:00 AM - 11:00 PM</p>
+              <p>Tue 11:00 AM - 11:00 PM</p>
+              <p>Wed 11:00 AM - 11:00 PM</p>
+              <p>Thu 11:00 AM - 11:00 PM</p>
+              <p>Fri 11:00 AM - 11:00 PM</p>
+              <p>Sat 11:00 AM - 11:00 PM</p>
+              <p>Sun 11:00 AM - 11:00 PM</p>
+            </div>
+          </div>
+          <div>
+            {currUser ? (
+              <NavLink to={`/restaurants/${businessId}/reviews/create`}>
+                <button className="review-button">Create Review</button>
+              </NavLink>
+            ) : null}
+          </div>
 
-        <div>
-          {currUser ? (
-            <NavLink to={`/restaurants/${businessId}/reviews/create`}>
-              <button className="review-button">Create Review</button>
-            </NavLink>
-          ) : null}
+          <ReviewIndex reviews={reviews} />
         </div>
-
-        <ReviewIndex reviews={reviews} />
+        <div id="res-form">
+          <ReservationCreate />
+        </div>
       </div>
     </div>
   );

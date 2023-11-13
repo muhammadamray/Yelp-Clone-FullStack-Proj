@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :businesses, only: [:index, :show]
     resources :reviews, only: [:index, :create, :show, :update, :destroy]
+    resources :reservations, only: [:index, :create, :update, :destroy]
   end
 
   post 'api/test', to: 'application#test'

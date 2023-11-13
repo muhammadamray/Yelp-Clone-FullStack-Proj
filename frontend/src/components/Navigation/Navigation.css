@@ -37,7 +37,7 @@
 
 
 #NotYelp{
-    margin-right: 2em;
+    margin: 0 1em;
 }
 
 .restaurants{
@@ -60,5 +60,21 @@
 #sessionLinks{
     text-align: right;
     justify-content: flex-end;
-    margin-left: 40em;
+    margin-left: auto;
 }
+
+.searchbar-container{
+    display: flex;
+    align-items: center;
+}
+
+
+#sear-btn {
+    height: 45px; 
+}
+
+#search-input {
+    width: 80%;
+    height: 24px; 
+    padding: 0.5em 0.7em;
+  }

@@ -28,8 +28,8 @@
 .rest-info {
     z-index: 2;
     position: absolute;
-    top: 78%;
-    left: 8%;
+    top: 78vh;
+    left: 8vw;
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -45,10 +45,15 @@
 
 .extra-content {
     min-height: 31.25em; 
-    width: 100%;
-    padding-left: 8em;
+    width: 100vw;
+    /* padding-left: 8em; */
     padding-bottom: 1em;
-    margin: 2rem;
+    margin-top: 2em;
+    /* padding-left: 8vw; */
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
 }
 /* changed the min height from 31.25em */
 
@@ -118,8 +123,23 @@
     z-index: 1;
 }
 
-
-/* #bsmap{
+#map-hours-rev{
     width: 100%;
-} */
+    padding-left: 8vw;
+}
 
+#map-hours{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#res-form{
+    padding-right: 8vw;
+}
+.week-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap to the desired space between the paragraphs */
+  }

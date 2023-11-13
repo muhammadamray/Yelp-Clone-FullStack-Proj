@@ -22,6 +22,9 @@ class User < ApplicationRecord
 
   has_many :reviews,
   dependent: :destroy
+
+  has_many :reservations,
+  dependent: :destroy
   
   has_secure_password
   validates :password, length: { in: 6..255 }, allow_nil: true

@@ -7,6 +7,7 @@ import {
   fetchSearchSuggestions,
 } from "../../store/search";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import sear from "./sear.png";
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -70,8 +71,9 @@ function SearchBar() {
         value={searchText}
         onChange={handleSearch}
       ></input>
+      <img id="sear-btn" src={sear} alt="Search" onClick={handleSubmit} />
 
-      <button onClick={handleSubmit}>Search</button>
+      {/* <button onClick={handleSubmit}>Search</button> */}
 
       {searchText && (
         <ul id="search-dropdown">

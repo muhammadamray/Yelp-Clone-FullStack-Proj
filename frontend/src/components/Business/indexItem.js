@@ -5,8 +5,7 @@ import "./Business.css";
 import Rating from "@mui/material/Rating";
 
 const IndexItem = ({ business }) => {
-  // console.log(business);
-  // console.log(business.id);
+
 
   return (
     <Link to={`/restaurants/${business.id}`} className="business-link">

@@ -1,25 +1,41 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../store/reservation";
 import "./Reservation.css";
+import { useLocation } from "react-router-dom";
 
 const ReservationCreate = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const restId = location.pathname.split("/")[2];
+  const currUser = useSelector((state) => state.session.user);
+
+  function formatDate(dateObject) {
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const day = String(dateObject.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
+
   const [reservationData, setReservationData] = useState({
-    date: "",
-    time: "12:00 PM",
-    guests: "2",
+    date: formatDate(new Date()),
+    start_time: "12:00 PM",
+    guests: 2,
+    user_id: currUser?.id,
+    business_id: Number(restId),
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(value, "hello");
     setReservationData({ ...reservationData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createReservation(reservationData));
-    setReservationData({ date: "", time: "12:00 PM", guests: "2" });
+    // setReservationData({ date: "", time: "12:00 PM", guests: "2" });
   };
 
   const times = [
@@ -54,7 +70,7 @@ const ReservationCreate = () => {
       <div className="time-guest">
         <select
           id="appt"
-          name="time"
+          name="start_time"
           value={reservationData.time}
           onChange={handleInputChange}
         >
@@ -79,9 +95,11 @@ const ReservationCreate = () => {
           <option value="6">6 people</option>
         </select>
       </div>
-      <button onSubmit={handleSubmit} type="reservation-submit">
-        Confirm Table
-      </button>
+      {currUser ? (
+        <button onClick={handleSubmit} type="reservation-submit">
+          Confirm Table
+        </button>
+      ) : null}
     </div>
   );
 };

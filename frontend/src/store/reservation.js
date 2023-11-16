@@ -20,16 +20,19 @@ export const removeReservation = (reservationId) => ({
 });
 
 export const getReservation = (reservationId) => (state) => {
-  if (state.reservations[reservationId]) return state.reservations[reservationId];
+  if (state.reservations[reservationId])
+    return state.reservations[reservationId];
   return null;
 };
 
 export const getReservations = (state, userId) => {
-  if (state.reservations) {
-    let allReservations = Object.values(state.reservations);
+  if (state.reservation) {
+    let allReservations = Object.values(state.reservation);
+
     let filtered = allReservations.filter(
-      (reservation) => reservation.userId.toString() === userId
+      (reservation) => reservation.userId === userId
     );
+
     return filtered;
   }
   return [];
@@ -39,6 +42,7 @@ export const fetchReservations = () => async (dispatch) => {
   const res = await csrfFetch("/api/reservations");
   if (res.ok) {
     const data = await res.json();
+
     dispatch(receiveReservations(data));
   }
 };
@@ -96,12 +100,15 @@ const reservationsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_RESERVATIONS:
-      return { ...nextState, ...action.data.reservations };
+      for (let i = 0; i < action.data.length; i++) {
+        nextState[action.data[i].id] = action.data[i];
+      }
+      return { ...nextState };
     case RECEIVE_RESERVATION:
-      return { ...state, [action.data.id]: action.data };
+      return { ...state, ...action.data.reservations };
     case REMOVE_RESERVATION:
       delete nextState[action.reservationId];
-      return nextState;
+      return { ...nextState };
     default:
       return state;
   }

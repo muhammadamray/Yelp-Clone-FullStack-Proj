@@ -18,16 +18,13 @@ import ReservationCreate from "../Reservation/ReservationCreate";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
-  // console.log(businessId);
-
-  // TODO: businessId is undefined
-  // use params arent working............
 
   const location = useLocation();
   const restId = location.pathname.split("/")[2];
 
   const business = useSelector(getBusiness(restId));
   const reviews = useSelector((state) => getReviews(state, restId));
+    // const reviews = useSelector((state) => state.reviews)
   const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 

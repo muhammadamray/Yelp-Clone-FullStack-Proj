@@ -8,7 +8,7 @@ import BusinessMapWrapper from "../NotYelpMap";
 import Search from "./SearchShowPage";
 
 const Business = (props) => {
-  console.log(props, "string");
+
   //   const businesses = useSelector(getBusinesses);
 //   const businesses = useSelector((state) => Object.values(state.search));
   // const [businesses, setBusinesses] = useState(props.searchResults);
@@ -19,7 +19,6 @@ const Business = (props) => {
     dispatch(fetchBusinesses());
   }, [dispatch]);
 
-  console.log(businesses, "test");
   return (
     <>
       <div className="business-pg-container">

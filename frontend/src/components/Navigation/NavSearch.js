@@ -37,7 +37,6 @@ function SearchBar() {
     // clearTimeout(timer);
     if (query.trim() !== "") {
       dispatch(fetchSearchSuggestions(searchText));
-      // console.log("justin")
       // setTimer(setTimeout(() => dispatch(fetchSearchResults(query)), 300));
     } else {
       dispatch(clearSearchResults());

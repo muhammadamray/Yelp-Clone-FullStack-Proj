@@ -1,5 +1,6 @@
 class Api::ReservationsController < ApplicationController
-
+    wrap_parameters include: Reservation.attribute_names + [:businessId]
+    
     def create
         @reservation = Reservation.new(reservation_params)
 
@@ -35,7 +36,7 @@ class Api::ReservationsController < ApplicationController
 
         if @reservation.user_id == current_user.id
             @reservation.destroy
-            render :show
+            render :index
         end
     end
 

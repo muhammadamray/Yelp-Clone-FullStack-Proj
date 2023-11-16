@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteReview, fetchReviews } from "../../store/review";
@@ -8,8 +8,16 @@ import { Avatar } from "@mui/material";
 import Rating from "@mui/material/Rating";
 
 const ReviewIndexItem = ({ review }) => {
+  // console.log(review);
   const currUser = useSelector((state) => state.session.user);
-  const [rating, setRating] = useState(review.rating);
+  const reviews = useSelector((state) => state.reviews[review.id]);
+  // console.log(reviews?.rating);
+
+  const [rating, setRating] = useState(reviews?.rating);
+
+  useEffect(() => {
+    setRating(reviews.rating);
+  }, [reviews.rating]);
 
   const dispatch = useDispatch();
 
@@ -32,7 +40,7 @@ const ReviewIndexItem = ({ review }) => {
         </span>
       </div>
       <div className="rating-time-container">
-        <Rating value={rating}readOnly  className="review-rating"/>
+        <Rating value={rating} readOnly className="review-rating" />
         {
           new Date(review?.updatedAt)
             .toLocaleString("en-US", {

@@ -31,6 +31,21 @@ class Api::ReservationsController < ApplicationController
         end
     end
 
+    # def update
+    #     @reservation = current_user.reviews.find(params[:id])
+      
+    #     unless @reservation
+    #       render json: { message: 'Unauthorized' }, status: :unauthorized
+    #       return
+    #     end
+      
+    #     if @reservation.update(reservation_params)
+    #       render :show
+    #     else
+    #       render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+    #     end
+    # end
+
     def destroy
         @reservation = Reservation.find_by(id: params[:id])
 

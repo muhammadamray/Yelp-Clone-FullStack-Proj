@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getReservations, deleteReservation, fetchReservations } from "../../store/reservation";
+import {
+  getReservations,
+  deleteReservation,
+  fetchReservations,
+} from "../../store/reservation";
 import "./index.css";
-import ReservationModal from "./ReservationModal"
-
+import ReservationModal from "./ReservationModal";
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -29,14 +32,13 @@ const Reservations = () => {
     return `${formattedHours}:${formattedMinutes} ${period}`;
   }
 
-  const handleDelete = (e, id ) => {
+  const handleDelete = (e, id) => {
     e.preventDefault();
     dispatch(deleteReservation(id));
   };
 
   return (
     <div className="Reservation-pg-container">
-
       {reservations.map((reservation) => (
         <div className="reservation-data" key={reservation.id}>
           <div id="res-bs-name">{reservation.business.name}</div>
@@ -45,8 +47,18 @@ const Reservations = () => {
             {convertUtcTo12HourTime(reservation.startTime)}
           </div>
           <div id="res-guests">{reservation.guests}</div>
-          <ReservationModal />
-          <button onClick={(e) => handleDelete(e, reservation.id)} className="reservation-btn">
+          <ReservationModal
+            // reservationId={reservation.id}
+            // date={reservation.date}
+            // startTime={reservation.startTime}
+            // guests={reservation.guests}
+            // businessId={reservation.businessId}
+            reservation={reservation}
+          />
+          <button
+            onClick={(e) => handleDelete(e, reservation.id)}
+            className="reservation-btn"
+          >
             Delete
           </button>
         </div>

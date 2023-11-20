@@ -28,7 +28,6 @@ const ReservationCreate = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(value, "hello");
     setReservationData({ ...reservationData, [name]: value });
   };
 

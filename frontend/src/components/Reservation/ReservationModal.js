@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import {Modal} from "../../context/Modal"
-import ReservationEdit from "./ReservationEdit"
+import { Modal } from "../../context/Modal";
+import ReservationEdit from "./ReservationEdit";
 
-function ReservationModal() {
+function ReservationModal({ reservation }) {
+  // const reservation = reservation;
+
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -10,7 +12,10 @@ function ReservationModal() {
       <button onClick={() => setShowModal(true)}>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ReservationEdit />
+          <ReservationEdit
+            setShowModal={setShowModal}
+            reservation={reservation}
+          />
         </Modal>
       )}
     </>

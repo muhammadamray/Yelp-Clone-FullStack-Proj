@@ -100,11 +100,11 @@ const reviewsReducer = (state = {}, action) => {
     case RECEIVE_REVIEWS:
       return { ...nextState, ...action.data.reviews };
     case RECEIVE_REVIEW:
-      console.log(state, "state")
-      console.log(action.data, "data")
+      // console.log(state, "state")
+      // console.log(action.data, "data")
       delete state[action.data.id]
       let mmm = { ...state, [action.data.id]: action.data }
-      console.log(mmm)
+      // console.log(mmm)
 
       return mmm;
     case REMOVE_REVIEW:

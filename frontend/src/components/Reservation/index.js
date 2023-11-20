@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReservations, deleteReservation, fetchReservations } from "../../store/reservation";
 import "./index.css";
+import ReservationModal from "./ReservationModal"
+
 
 const Reservations = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ const Reservations = () => {
             {convertUtcTo12HourTime(reservation.startTime)}
           </div>
           <div id="res-guests">{reservation.guests}</div>
+          <ReservationModal />
           <button onClick={(e) => handleDelete(e, reservation.id)} className="reservation-btn">
             Delete
           </button>

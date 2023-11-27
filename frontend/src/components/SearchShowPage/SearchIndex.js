@@ -8,18 +8,17 @@ import BusinessMapWrapper from "../NotYelpMap";
 import Search from "./SearchShowPage";
 
 const Business = (props) => {
-  console.log(props, "string");
+
   //   const businesses = useSelector(getBusinesses);
 //   const businesses = useSelector((state) => Object.values(state.search));
-  const [businesses, setBusinesses] = useState(props.searchResults);
+  // const [businesses, setBusinesses] = useState(props.searchResults);
+  const businesses = props.searchResults
   const dispatch = useDispatch();
   const [highlightedBusiness, setHighlightedBusiness] = useState(null); // Add state for highlighted business ID
-    // console.log(businesses2, "bus2")
   useEffect(() => {
     dispatch(fetchBusinesses());
   }, [dispatch]);
 
-  console.log(businesses, "test");
   return (
     <>
       <div className="business-pg-container">

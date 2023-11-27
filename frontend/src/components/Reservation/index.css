@@ -1,0 +1,9 @@
+.Reservation-pg-container{
+    margin-top: 10vh;
+}
+.reservation-data {
+    border: 2px solid black;
+    padding: 10px;
+    width: 20vw;
+    margin: 10px;
+}

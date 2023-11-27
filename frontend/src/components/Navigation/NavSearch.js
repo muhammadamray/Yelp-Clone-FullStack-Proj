@@ -1,18 +1,32 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { clearSearchResults, fetchSearchResults } from "../../store/search";
+import {
+  clearSearchResults,
+  fetchSearchResults,
+  fetchSearchSuggestions,
+} from "../../store/search";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import sear from "./sear.png";
 
 function SearchBar() {
   const dispatch = useDispatch();
   const history = useHistory();
-const searchResults = useSelector((state) => {
-  if (state.search) {
-    return Object.values(state.search);
-  }
-  return [];
-});
+  const searchResults = useSelector((state) => {
+    if (state.search.results) {
+      return Object.values(state.search.results);
+    }
+    return [];
+  });
+
+  const searchSuggestions = useSelector((state) => {
+    if (state.search.suggestions) {
+      return Object.values(state.search.suggestions);
+    }
+    return [];
+  });
+
+  // const searchResults = useSelector((state) => Object.values(state.search));
 
   const [searchText, setSearchText] = useState("");
   // const [timer, setTimer] = useState(0);
@@ -22,13 +36,13 @@ const searchResults = useSelector((state) => {
     setSearchText(query);
     // clearTimeout(timer);
     if (query.trim() !== "") {
-      console.log("justin")
+      dispatch(fetchSearchSuggestions(searchText));
       // setTimer(setTimeout(() => dispatch(fetchSearchResults(query)), 300));
     } else {
       dispatch(clearSearchResults());
     }
   }
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     if (searchText.trim() !== "") {
@@ -56,12 +70,13 @@ const searchResults = useSelector((state) => {
         value={searchText}
         onChange={handleSearch}
       ></input>
+      <img id="sear-btn" src={sear} alt="Search" onClick={handleSubmit} />
 
-      <button onClick={handleSubmit}>Search</button>
+      {/* <button onClick={handleSubmit}>Search</button> */}
 
       {searchText && (
         <ul id="search-dropdown">
-          {searchResults.map((result) => {
+          {searchSuggestions.map((result) => {
             return (
               <li
                 onClick={handleLinkClick(result.id)}

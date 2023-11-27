@@ -52,15 +52,6 @@ export const fetchReview = (reviewId) => async (dispatch) => {
   dispatch(receiveReview(data));
 };
 
-export const fetchBusiness = (reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`);
-
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(receiveReview(data));
-  }
-};
-
 export const createReview = (review) => async (dispatch) => {
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
@@ -109,7 +100,13 @@ const reviewsReducer = (state = {}, action) => {
     case RECEIVE_REVIEWS:
       return { ...nextState, ...action.data.reviews };
     case RECEIVE_REVIEW:
-      return { ...state, [action.data.id]: action.data };
+      // console.log(state, "state")
+      // console.log(action.data, "data")
+      delete state[action.data.id]
+      let mmm = { ...state, [action.data.id]: action.data }
+      // console.log(mmm)
+
+      return mmm;
     case REMOVE_REVIEW:
       delete nextState[action.reviewId];
       return nextState;

@@ -18,7 +18,14 @@ function Navigation() {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <>
+        <NavLink to="/reservations" className="reservation-btn">
+          All Reservations
+        </NavLink>
+        <ProfileButton user={sessionUser} />
+      </>
+    );
   } else {
     sessionLinks = (
       <div className="auth-btn-container">

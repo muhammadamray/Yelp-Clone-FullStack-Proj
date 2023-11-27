@@ -13,6 +13,7 @@ import Search from "./components/SearchShowPage/SearchShowPage";
 // import ReviewShow from "./components/Reviews/ReviewShow";
 import ReviewCreate from "./components/Reviews/ReviewCreate";
 import ReviewEdit from "./components/Reviews/ReviewEdit";
+import Reservations from "./components/Reservation/index"
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Splash />
+        </Route>
+        <Route path="/reservations">
+          <Reservations />
         </Route>
         <Route exact path="/restaurants/:businessId/reviews/create" component={ReviewCreate} />
         <Route path="/reviews/:reviewId/edit" component={ReviewEdit} />

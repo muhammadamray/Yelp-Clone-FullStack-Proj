@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./Splash.css"; // Import your CSS file for styling
 import Logo from "./Logo.png"; // Import your logo image
+import { fetchReservations } from "../../store/reservation";
 
 const Splash = () => {
   const [currentImage, setCurrentImage] = useState(0);
-
+  const currUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
   const images = [
     "https://www.wsetglobal.com/media/8219/1086x672_antipasti-wine.jpg",
     "https://wallpapers.com/images/hd/food-4k-3gsi5u6kjma5zkj0.jpg",
@@ -21,13 +24,17 @@ const Splash = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  useEffect(() => {
+    if (currUser) {
+      dispatch(fetchReservations());
+    }
+  }, [currUser, dispatch]);
+
   return (
     <div className="splash-container">
       <div className="carousel">
-        <div className="centext"> 
-          <div className="splash-text">
-            Welcome to Not Yelp
-          </div>
+        <div className="centext">
+          <div className="splash-text">Welcome to Not Yelp</div>
           <div>
             <img className="logo" src={Logo} alt="Logo" />
           </div>

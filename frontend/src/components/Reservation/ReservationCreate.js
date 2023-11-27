@@ -9,12 +9,15 @@ const ReservationCreate = () => {
   const location = useLocation();
   const restId = location.pathname.split("/")[2];
   const currUser = useSelector((state) => state.session.user);
+  const allReservations = useSelector((state) =>
+    Object.values(state.reservation)
+  );
+  const [error, setError] = useState(null);
 
   function formatDate(dateObject) {
     const year = dateObject.getFullYear();
     const month = String(dateObject.getMonth() + 1).padStart(2, "0"); // Months are zero-based
     const day = String(dateObject.getDate()).padStart(2, "0");
-
     return `${year}-${month}-${day}`;
   }
 
@@ -28,7 +31,21 @@ const ReservationCreate = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setReservationData({ ...reservationData, [name]: value });
+    let err = null;
+    if (name === "date") {
+      allReservations.forEach((res) => {
+        // debugger;
+        if (res.businessId === parseInt(restId) && res.date === value) {
+          // debugger;
+          setError("Invalid Date");
+          err = true;
+        }else{
+         setError(null)
+        }
+      });
+    }
+
+    if (err === null) setReservationData({ ...reservationData, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -99,6 +116,7 @@ const ReservationCreate = () => {
           Confirm Table
         </button>
       ) : null}
+      <div>{error}</div>
     </div>
   );
 };

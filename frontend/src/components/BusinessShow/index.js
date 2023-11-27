@@ -15,6 +15,7 @@ import Rating from "@mui/material/Rating";
 // import BusinessMap from "../../components/NotYelpMap"
 import YelpMap from "../YelpMap";
 import ReservationCreate from "../Reservation/ReservationCreate";
+import { fetchReservations } from "../../store/reservation";
 
 const BusinessShow = () => {
   const { businessId } = useParams();
@@ -24,18 +25,25 @@ const BusinessShow = () => {
 
   const business = useSelector(getBusiness(restId));
   const reviews = useSelector((state) => getReviews(state, restId));
-    // const reviews = useSelector((state) => state.reviews)
+  // const reviews = useSelector((state) => state.reviews)
   const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchBusiness(restId));
   }, [restId, dispatch]);
-
+  
+  useEffect(() => {
+    if (currUser) {
+      dispatch(fetchReservations());
+    }
+  }, [currUser, dispatch]);
+  
   // Handle business not found
   if (!business) {
     return <p>Business not found</p>;
   }
+
 
   return (
     <div className="page-container">

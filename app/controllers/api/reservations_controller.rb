@@ -13,8 +13,13 @@ class Api::ReservationsController < ApplicationController
     end
 
     def index
-        @reservations = current_user.reservations
-            render :index
+        if current_user
+            @reservations = current_user.reservations
+            # render :index
+        else
+            @reservations = []
+        end 
+        render :index
     end
 
     def show

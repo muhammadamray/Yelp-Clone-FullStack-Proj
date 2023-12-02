@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../store/reservation";
 import "./Reservation.css";
@@ -9,12 +9,15 @@ const ReservationCreate = () => {
   const location = useLocation();
   const restId = location.pathname.split("/")[2];
   const currUser = useSelector((state) => state.session.user);
+  const allReservations = useSelector((state) =>
+    Object.values(state.reservation)
+  );
+  const [error, setError] = useState(null);
 
   function formatDate(dateObject) {
     const year = dateObject.getFullYear();
     const month = String(dateObject.getMonth() + 1).padStart(2, "0"); // Months are zero-based
     const day = String(dateObject.getDate()).padStart(2, "0");
-
     return `${year}-${month}-${day}`;
   }
 
@@ -28,7 +31,28 @@ const ReservationCreate = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    let err = null;
+    if (name === "date") {
+      let date = new Date(value);
+      for (let i = 0; i < allReservations.length; i++) {
+        let res = allReservations[i];
+        if (res.businessId === parseInt(restId) && res.date === value) {
+          setError("You already have a reservation for this date");
+
+          err = true;
+          break;
+        } else if (date < Date.now()) {
+          setError("Can't Select Past Date");
+          break;
+        } else {
+          setError(null);
+        }
+      }
+    }
+
     setReservationData({ ...reservationData, [name]: value });
+    // if (err === null) setReservationData({ ...reservationData, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -37,7 +61,7 @@ const ReservationCreate = () => {
     // setReservationData({ date: "", time: "12:00 PM", guests: "2" });
   };
 
-  const times = [
+  let times = [
     "12:00 PM",
     "12:30 PM",
     "01:00 PM",
@@ -56,6 +80,41 @@ const ReservationCreate = () => {
     "07:30 PM",
   ];
 
+  let settimes = [
+    "12:00 PM",
+    "12:30 PM",
+    "1:00 PM",
+    "1:30 PM",
+    "2:00 PM",
+    "2:30 PM",
+    "3:00 PM",
+    "3:30 PM",
+    "4:00 PM",
+    "4:30 PM",
+    "5:00 PM",
+    "5:30 PM",
+    "6:00 PM",
+    "6:30 PM",
+    "7:00 PM",
+    "7:30 PM",
+  ];
+
+  // let filteredTime = () => {
+  //   let newTimes = settimes.filter((time) => {
+  //     // console.log(time, "time");
+  //     // console.log(new Date().toLocaleTimeString(), "new date");
+  //     // console.log(time > new Date().toLocaleTimeString(), "bol=olean");
+  //     return time > new Date().toLocaleTimeString();
+  //   });
+  //   console.log(newTimes);
+  //   return newTimes;
+  // };
+  const filteredTime = settimes.filter(
+    (time) => time > new Date().toLocaleTimeString()
+  );
+
+  // filteredTime();
+
   return (
     <div className="reservation-box">
       <h1 id="res-tittle">Make a reservation</h1>
@@ -65,6 +124,7 @@ const ReservationCreate = () => {
         name="date"
         value={reservationData.date}
         onChange={handleInputChange}
+        // min={Date.now()}
       />
       <div className="time-guest">
         <select
@@ -73,11 +133,17 @@ const ReservationCreate = () => {
           value={reservationData.time}
           onChange={handleInputChange}
         >
-          {times.map((time, index) => (
-            <option key={index} value={time}>
-              {time}
-            </option>
-          ))}
+          {reservationData.date === formatDate(new Date())
+            ? filteredTime.map((time, index) => (
+                <option key={index} value={time}>
+                  {time}
+                </option>
+              ))
+            : times.map((time, index) => (
+                <option key={index} value={time}>
+                  {time}
+                </option>
+              ))}
         </select>
 
         <select
@@ -99,6 +165,7 @@ const ReservationCreate = () => {
           Confirm Table
         </button>
       ) : null}
+      <div>{error ? error : null}</div>
     </div>
   );
 };

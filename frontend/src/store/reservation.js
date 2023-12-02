@@ -4,6 +4,7 @@ export const RECEIVE_RESERVATIONS = "reservations/receiveReservations";
 export const RECEIVE_RESERVATION = "reservations/receiveReservation";
 export const REMOVE_RESERVATION = "reservations/removeReservation";
 export const UPDATE_RESERVATION = "reservations/updateRes"
+const REMOVE_CURRENT_USER = "session/removeCurrentUser";
 
 export const receiveReservations = (data) => ({
   type: RECEIVE_RESERVATIONS,
@@ -115,13 +116,14 @@ const reservationsReducer = (state = {}, action) => {
     case RECEIVE_RESERVATION:
       return { ...state, ...action.data.reservations };
     case UPDATE_RESERVATION:
-
       delete nextState[action.data.id]
       nextState[action.data.id] = action.data
       return {...nextState}
     case REMOVE_RESERVATION:
       delete nextState[action.reservationId];
       return { ...nextState };
+    case REMOVE_CURRENT_USER:
+      return {}; 
     default:
       return state;
   }

@@ -12,12 +12,12 @@ const Reservations = () => {
   const dispatch = useDispatch();
   const currUser = useSelector((state) => state.session.user);
   const reservations = useSelector((state) =>
-    getReservations(state, currUser.id)
+    getReservations(state, currUser?.id)
   );
 
   useEffect(() => {
-    dispatch(fetchReservations());
-  }, [dispatch]);
+   if(currUser)dispatch(fetchReservations());
+  }, [currUser, dispatch]);
 
   function convertUtcTo12HourTime(utcTimestamp) {
     const utcDate = new Date(utcTimestamp);

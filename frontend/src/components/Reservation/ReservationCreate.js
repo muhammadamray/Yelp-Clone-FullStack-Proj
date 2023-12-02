@@ -53,6 +53,7 @@ const ReservationCreate = () => {
 
     setReservationData({ ...reservationData, [name]: value });
     // if (err === null) setReservationData({ ...reservationData, [name]: value });
+    
   };
 
   const handleSubmit = (e) => {

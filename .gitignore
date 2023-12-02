@@ -9,6 +9,7 @@
 
 .byebug_history 
 .DS_Store
+.env
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../store/reservation";
 import "./Reservation.css";
@@ -32,7 +32,7 @@ const ReservationCreate = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    let err = null;
+    // let err = null;
     if (name === "date") {
       let date = new Date(value);
       for (let i = 0; i < allReservations.length; i++) {
@@ -40,7 +40,7 @@ const ReservationCreate = () => {
         if (res.businessId === parseInt(restId) && res.date === value) {
           setError("You already have a reservation for this date");
 
-          err = true;
+          // err = true;
           break;
         } else if (date < Date.now()) {
           setError("Can't Select Past Date");
@@ -53,7 +53,6 @@ const ReservationCreate = () => {
 
     setReservationData({ ...reservationData, [name]: value });
     // if (err === null) setReservationData({ ...reservationData, [name]: value });
-    
   };
 
   const handleSubmit = (e) => {
@@ -162,9 +161,9 @@ const ReservationCreate = () => {
         </select>
       </div>
       {currUser ? (
-        <button onClick={handleSubmit} type="reservation-submit">
-          Confirm Table
-        </button>
+        <div id="table-btn" onClick={handleSubmit} type="reservation-submit">
+          Find a Table
+        </div>
       ) : null}
       <div>{error ? error : null}</div>
     </div>

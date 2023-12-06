@@ -1,9 +1,56 @@
-.Reservation-pg-container{
+/* Add this to your CSS or a stylesheet */
+.Reservation-pg-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-top: 10vh;
-}
-.reservation-data {
-    border: 2px solid black;
-    padding: 10px;
-    width: 20vw;
+  }
+  
+  .reservation-data {
+    border: 2px solid #ddd; /* Lighter border color */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    padding: 20px;
+    width: 300px;
     margin: 10px;
-}
+    text-align: center;
+    background-color: #fff; /* White background */
+  }
+  
+  /* Style for delete button */
+  .reservation-btn {
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reservation-btn:hover {
+    background-color: #bd2130; /* Darker shade for hover effect */
+  }
+  
+  /* Add styles for individual reservation details */
+  #res-bs-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  #res-date,
+  #res-time,
+  #res-guests {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  /* Add media query for responsiveness */
+  @media (max-width: 768px) {
+    .reservation-data {
+      width: 80%;
+    }
+  }
+  

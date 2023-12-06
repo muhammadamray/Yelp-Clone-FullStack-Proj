@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  fetchReservation,
-  getReservation,
   updateReservation,
 } from "../../store/reservation";
 
@@ -108,9 +106,9 @@ const ReservationEdit = ({ reservation, setShowModal }) => {
         </select>
       </div>
 
-      <button onClick={handleSubmit} type="reservation-submit">
+      <div id="table-btn" onClick={handleSubmit} type="reservation-submit">
         Confirm Table
-      </button>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import {
@@ -8,8 +8,10 @@ import {
 } from "../../store/search";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import sear from "./sear.png";
+import "./Navigation.css";
 
 function SearchBar() {
+  const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const searchResults = useSelector((state) => {
@@ -26,6 +28,18 @@ function SearchBar() {
     return [];
   });
 
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
   // const searchResults = useSelector((state) => Object.values(state.search));
 
   const [searchText, setSearchText] = useState("");
@@ -34,17 +48,14 @@ function SearchBar() {
   function handleSearch(e) {
     const query = e.target.value;
     setSearchText(query);
-    // clearTimeout(timer);
     if (query.trim() !== "") {
       dispatch(fetchSearchSuggestions(searchText));
-      // setTimer(setTimeout(() => dispatch(fetchSearchResults(query)), 300));
     } else {
       dispatch(clearSearchResults());
     }
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
     if (searchText.trim() !== "") {
       dispatch(fetchSearchResults(searchText));
       setSearchText("");

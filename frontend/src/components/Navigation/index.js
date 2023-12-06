@@ -54,9 +54,9 @@ function Navigation() {
           </NavLink>
         </div>
 
-        <div className="SearchBar">
+        {/* <div className="SearchBar"> */}
           <SearchBar />
-        </div>
+        {/* </div> */}
 
         <div className="resturants">
           <NavLink exact to="/restaurants" className="restaurants-link">

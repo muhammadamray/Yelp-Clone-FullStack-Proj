@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { useHistory } from "react-router-dom"; // Import useHistory
-
+import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -23,31 +24,26 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
-    debugger
     dispatch(sessionActions.logout());
-    debugger
     history.push("/");
   };
 
   const toggleMenu = (e) => {
-    // MAIN CHANGE HERE prevent default and stop click from being heard when menu is opened
     e.preventDefault();
-    e.stopPropagation(); // this prevents the click from being heard by the closeMenu eventHandler
-    setShowMenu(!showMenu); // this one needs to be !showMenu in the event we try to close the menu with the button
+    e.stopPropagation();
+    setShowMenu(!showMenu);
   };
 
   return (
     <>
-      <button onClick={toggleMenu}>
-        {/* <i className="fa-solid fa-user-circle" /> */}
-        Menu
+      <button class="profile-button" onClick={toggleMenu}>
+        <i class="fas fa-user"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
+
+          <button id="logout-btn" onClick={logout}>Log Out</button>
         </ul>
       )}
     </>

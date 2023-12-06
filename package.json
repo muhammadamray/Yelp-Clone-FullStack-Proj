@@ -21,5 +21,10 @@
   "homepage": "https://github.com/muhammadamray/Yelp-Clone-FullStack-Proj#readme",
   "engines": {
     "node": "18.18.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0"
   }
 }

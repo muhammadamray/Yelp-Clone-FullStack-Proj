@@ -49,9 +49,15 @@ function SearchBar() {
     const query = e.target.value;
     setSearchText(query);
     if (query.trim() !== "") {
-      dispatch(fetchSearchSuggestions(searchText));
+      dispatch(fetchSearchSuggestions(query));
     } else {
       dispatch(clearSearchResults());
+    }
+
+    if (query.length > 0) {
+      setShowMenu(true);
+    } else {
+      setShowMenu(false);
     }
   }
 
@@ -85,7 +91,7 @@ function SearchBar() {
 
       {/* <button onClick={handleSubmit}>Search</button> */}
 
-      {searchText && (
+      {showMenu && (
         <ul id="search-dropdown">
           {searchSuggestions.map((result) => {
             return (

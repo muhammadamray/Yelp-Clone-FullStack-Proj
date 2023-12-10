@@ -16,7 +16,6 @@ class Api::BusinessesController < ApplicationController
 
     def search 
         query = params[:query]
-        # debugger
 
         @businesses = Business.where('name ILIKE ?', "%#{query}%")
 

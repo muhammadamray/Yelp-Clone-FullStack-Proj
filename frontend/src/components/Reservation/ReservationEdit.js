@@ -1,11 +1,8 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  updateReservation,
-} from "../../store/reservation";
+import { updateReservation } from "../../store/reservation";
 
 const ReservationEdit = ({ reservation, setShowModal }) => {
-  // console.log(reservation)
 
   const dispatch = useDispatch();
   const currUser = useSelector((state) => state.session.user);
@@ -31,10 +28,6 @@ const ReservationEdit = ({ reservation, setShowModal }) => {
     start_time: convertUtcTo12HourTime(reservation.startTime),
     // start_time: "2:00 PM",
   });
-  // console.log(reservation.startTime, "hello");
-  console.log(reservationData.start_time);
-
-  // console.log(reservationData)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

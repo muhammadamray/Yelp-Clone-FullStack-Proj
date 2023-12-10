@@ -3,7 +3,7 @@ import csrfFetch from "./csrf";
 export const RECEIVE_RESERVATIONS = "reservations/receiveReservations";
 export const RECEIVE_RESERVATION = "reservations/receiveReservation";
 export const REMOVE_RESERVATION = "reservations/removeReservation";
-export const UPDATE_RESERVATION = "reservations/updateRes"
+export const UPDATE_RESERVATION = "reservations/updateRes";
 const REMOVE_CURRENT_USER = "session/removeCurrentUser";
 
 export const receiveReservations = (data) => ({
@@ -25,7 +25,6 @@ export const updateRes = (data) => ({
   type: UPDATE_RESERVATION,
   data,
 });
-
 
 export const getReservation = (reservationId) => (state) => {
   if (state.reservations[reservationId])
@@ -89,7 +88,6 @@ export const updateReservation = (reservation) => async (dispatch) => {
 
   if (res.ok) {
     const updatedReservation = await res.json();
-    // console.log(updateReservation, "updated")
     dispatch(updateRes(updatedReservation));
   }
 };
@@ -116,14 +114,14 @@ const reservationsReducer = (state = {}, action) => {
     case RECEIVE_RESERVATION:
       return { ...state, ...action.data.reservations };
     case UPDATE_RESERVATION:
-      delete nextState[action.data.id]
-      nextState[action.data.id] = action.data
-      return {...nextState}
+      delete nextState[action.data.id];
+      nextState[action.data.id] = action.data;
+      return { ...nextState };
     case REMOVE_RESERVATION:
       delete nextState[action.reservationId];
       return { ...nextState };
     case REMOVE_CURRENT_USER:
-      return {}; 
+      return {};
     default:
       return state;
   }

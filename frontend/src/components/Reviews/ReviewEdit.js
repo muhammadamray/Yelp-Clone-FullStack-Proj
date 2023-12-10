@@ -27,24 +27,7 @@ const ReviewEdit = () => {
     setBusinessId(review?.businessId);
   }, [review]);
 
-  // const { businessId } = useParams();
-  // const currUser = useSelector((state) => state.session.user);
-
   const postReview = (e, rating, reviewText) => {
-    // console.log("hello");
-    // if (rating === -1) {
-    //   setErrorRating(true);
-    // } else {
-    //   setErrorRating(false);
-    // }
-
-    // if (reviewText.length <= 5) {
-    //   setErrorReview(true);
-    // } else {
-    //   setErrorReview(false);
-    // }
-    // console.log(rating);
-    // console.log(reviewText?.length);
     if (
       (rating > 0 && reviewText?.length >= 5) ||
       (review?.rating > 0 && review?.body.length >= 5)
@@ -57,7 +40,6 @@ const ReviewEdit = () => {
         business_id: businessId,
       };
       dispatch(updateReview(reviewObject));
-      // console.log(businessId);
       history.push(`/restaurants/${businessId}`);
     }
   };
@@ -68,13 +50,9 @@ const ReviewEdit = () => {
       <div className="curr-review-container">
         {review?.rating ? (
           <Rating
-            // value={rating ? rating : currReview?.rating}
-
             value={rating ? parseInt(rating) : review?.rating}
-            // value={review?.rating}
             onChange={(e) => {
               setRating(e.target.value);
-              // console.log(e.target.value);
             }}
             onChangeActive={(e, m) => {
               setNewRating(m);

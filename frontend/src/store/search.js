@@ -24,7 +24,6 @@ export const fetchSearchResults = (query) => async (dispatch) => {
 };
 
 export const fetchSearchSuggestions = (query) => async (dispatch) => {
-  // debugger
   const res = await csrfFetch(`/api/businesses/search?query=${query}`);
   const data = await res.json();
   dispatch(receiveSearchSuggestions(data));

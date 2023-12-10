@@ -99,21 +99,12 @@ const ReservationCreate = () => {
     "7:30 PM",
   ];
 
-  // let filteredTime = () => {
-  //   let newTimes = settimes.filter((time) => {
-  //     // console.log(time, "time");
-  //     // console.log(new Date().toLocaleTimeString(), "new date");
-  //     // console.log(time > new Date().toLocaleTimeString(), "bol=olean");
-  //     return time > new Date().toLocaleTimeString();
-  //   });
-  //   console.log(newTimes);
-  //   return newTimes;
-  // };
+ 
   const filteredTime = settimes.filter(
     (time) => time > new Date().toLocaleTimeString()
   );
 
-  // filteredTime();
+
 
   return (
     <div className="reservation-box">

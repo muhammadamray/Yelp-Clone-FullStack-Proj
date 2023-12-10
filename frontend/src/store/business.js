@@ -36,7 +36,6 @@ export const fetchBusinesses = () => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    // debugger
     dispatch(receiveBusinesses(data));
   }
 };

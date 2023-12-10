@@ -8,10 +8,8 @@ import { Avatar } from "@mui/material";
 import Rating from "@mui/material/Rating";
 
 const ReviewIndexItem = ({ review }) => {
-  // console.log(review);
   const currUser = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.reviews[review.id]);
-  // console.log(reviews?.rating);
 
   const [rating, setRating] = useState(reviews?.rating);
 

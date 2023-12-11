@@ -31,24 +31,24 @@ const Splash = () => {
   }, [currUser, dispatch]);
 
   return (
-    <div className="splash-container">
-      <div className="carousel">
-        <div className="centext">
-          <div className="splash-text">Welcome to Not Yelp</div>
-          <div>
-            <img className="logo" src={Logo} alt="Logo" />
-          </div>
+    // <div className="splash-container">
+    <div className="carousel">
+      <div className="centext">
+        <div className="splash-text">
+          Welcome to Not Yelp
         </div>
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Food ${index + 1}`}
-            className={`fade ${index === currentImage ? "active" : ""}`}
-          />
-        ))}
+          <img className="logo" src={Logo} alt="Logo" />
       </div>
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image}
+          alt={`Food ${index + 1}`}
+          className={`fade ${index === currentImage ? "active" : ""}`}
+        />
+      ))}
     </div>
+    // </div>
   );
 };
 

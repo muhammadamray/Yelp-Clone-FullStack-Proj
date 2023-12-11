@@ -2,8 +2,8 @@
 .picture-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
     /* height: 100vh;  */
     background-color: #f0f0f0; 
     margin-top: 2.5em;
@@ -28,11 +28,15 @@
 .rest-info {
     z-index: 2;
     position: absolute;
-    top: 78vh;
-    left: 8vw;
+    /* top: 78vh; */
+    /* left: 8vw; */
     color: white;
     font-size: 24px;
     font-weight: bold;
+    text-shadow: rgb(99, 99, 99) 0 0 10px;
+    backdrop-filter: blur(4px);
+    margin-bottom: 10px;        
+    margin-left: 90px;
 }
 
 .business-rating-cont {

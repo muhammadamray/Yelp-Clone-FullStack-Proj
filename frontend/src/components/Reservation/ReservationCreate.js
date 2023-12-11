@@ -1,10 +1,12 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createReservation } from "../../store/reservation";
 import "./Reservation.css";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+// import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 const ReservationCreate = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const location = useLocation();
   const restId = location.pathname.split("/")[2];
@@ -55,10 +57,13 @@ const ReservationCreate = () => {
     // if (err === null) setReservationData({ ...reservationData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createReservation(reservationData));
-    // setReservationData({ date: "", time: "12:00 PM", guests: "2" });
+    const reservation = await dispatch(createReservation(reservationData));
+    // console.log(reservation);
+    if (reservation.length) {
+      history.push("/reservations")
+    }
   };
 
   let times = [
@@ -99,12 +104,9 @@ const ReservationCreate = () => {
     "7:30 PM",
   ];
 
- 
   const filteredTime = settimes.filter(
     (time) => time > new Date().toLocaleTimeString()
   );
-
-
 
   return (
     <div className="reservation-box">
@@ -151,12 +153,13 @@ const ReservationCreate = () => {
           <option value="6">6 people</option>
         </select>
       </div>
-      {currUser ? (
+      {(currUser && !error) ? (
         <div id="table-btn" onClick={handleSubmit} type="reservation-submit">
           Find a Table
         </div>
-      ) : null}
-      <div>{error ? error : null}</div>
+      ) :
+      <div id="error-msg">{error}</div>
+      }
     </div>
   );
 };

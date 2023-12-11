@@ -73,7 +73,7 @@ export const createReservation = (reservation) => async (dispatch) => {
   if (res.ok) {
     const newReservation = await res.json();
     dispatch(receiveReservation(newReservation));
-    return res;
+    return newReservation;
   }
 };
 

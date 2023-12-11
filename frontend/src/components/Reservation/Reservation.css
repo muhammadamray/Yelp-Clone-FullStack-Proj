@@ -3,6 +3,7 @@
     padding: 10px;
     width: 20vw;
     border-radius: 7px;
+    height: 225px;
 }
   
 #res-tittle{
@@ -80,4 +81,9 @@
 
 #table-btn:hover {
     background-color: #ee4949;
+}
+
+#error-msg{
+    color: #D32322;
+    font-family: Poppins, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

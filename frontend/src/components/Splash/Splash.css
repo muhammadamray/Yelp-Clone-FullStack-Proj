@@ -24,20 +24,24 @@
 }
 
 .splash-text{
-    width: 400px;
+    /* width: 200px; */
 }
   
 .centext {
     display: flex;
     align-items: center; /* Center vertically */
+    justify-content: center;
     font-size: 35px; /* Adjust the font size as needed */
     font-weight: bold; /* Make the text bold */
     color: #ffffff; /* Text color */
     position: absolute;
     z-index: 1; /* Ensure text appears above the image */
-    top: 50%;
-    left: 50%;
-    transform: translate(-30%, -50%);
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    text-shadow: rgb(0, 0, 0) 0 0 10px;
+    backdrop-filter: blur(4px);
+    width: 345px;
 }
   
 .logo {

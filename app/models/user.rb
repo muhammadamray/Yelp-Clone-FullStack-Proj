@@ -21,37 +21,36 @@ class User < ApplicationRecord
   validates :zip_code, length: { is: 5 }, presence: true
 
   has_many :reviews,
-  dependent: :destroy
+           dependent: :destroy
 
   has_many :reservations,
-  dependent: :destroy
-  
+           dependent: :destroy
+
   has_secure_password
   validates :password, length: { in: 6..255 }, allow_nil: true
-    
-    before_validation :ensure_session_token
 
-    def self.find_by_credentials(email, password)
-      user = User.find_by(email: email)
-      user&.authenticate(password)
-    end
-  
-    def reset_session_token!
-      self.update!(session_token: generate_unique_session_token)
-      self.session_token
-    end
-  
-    private
-  
-    def generate_unique_session_token
-      loop do
-        token = SecureRandom.base64
-        break token unless User.exists?(session_token: token)
-      end
-    end
-  
-    def ensure_session_token
-      self.session_token ||= generate_unique_session_token
+  before_validation :ensure_session_token
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email:)
+    user&.authenticate(password)
+  end
+
+  def reset_session_token!
+    update!(session_token: generate_unique_session_token)
+    session_token
+  end
+
+  private
+
+  def generate_unique_session_token
+    loop do
+      token = SecureRandom.base64
+      break token unless User.exists?(session_token: token)
     end
   end
-  
+
+  def ensure_session_token
+    self.session_token ||= generate_unique_session_token
+  end
+end

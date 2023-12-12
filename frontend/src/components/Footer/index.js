@@ -19,9 +19,9 @@ const Footer = () => {
           </ul>
           <ul>
             <li>
-              <h2>Community</h2>
+              <h2>My Github</h2>
             </li>
-            <li>Write a Review</li>
+            <li>My Linkedin</li>
           </ul>
         </div>
       </div>

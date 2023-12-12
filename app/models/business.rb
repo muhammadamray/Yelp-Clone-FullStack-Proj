@@ -16,37 +16,34 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 class Business < ApplicationRecord
-    validates :name, :city, :state, presence: true
-    validates :zip_code, presence: true, length: { is: 5 }
-    validates :latitude, :longitude, presence: true
-    validates :price_range, presence: true
-    validates :phone_number, presence: true, length: { is: 12 }
-    validates :category, presence: true
+  validates :name, :city, :state, presence: true
+  validates :zip_code, presence: true, length: { is: 5 }
+  validates :latitude, :longitude, presence: true
+  validates :price_range, presence: true
+  validates :phone_number, presence: true, length: { is: 12 }
+  validates :category, presence: true
 
-    has_one_attached :photo
+  has_one_attached :photo
 
-    has_many :reservations,
-    dependent: :destroy
+  has_many :reservations,
+           dependent: :destroy
 
+  has_many :reviews,
+           dependent: :destroy
 
-    has_many :reviews,
-    dependent: :destroy
+  # has_many :reviewers,
+  # through: :reviews,
+  # source: :user,
+  # dependent: :destroy
 
-    # has_many :reviewers,
-    # through: :reviews,
-    # source: :user,
-    # dependent: :destroy
+  def calculate_updated_rating
+    ratings_sum = reviews.sum(:rating) # Sum of all ratings
+    reviews_count = reviews.count # Number of reviews
 
-    def calculate_updated_rating
-        ratings_sum = reviews.sum(:rating)    # Sum of all ratings
-        reviews_count = reviews.count         # Number of reviews
-    
-        # Handle the case when there are no reviews to avoid division by zero
-        return update(rating: 0) if reviews_count.zero?
-    
-        new_average_rating = ratings_sum / reviews_count.to_f
-        update(rating: new_average_rating.round(2))
-    end
-      
+    # Handle the case when there are no reviews to avoid division by zero
+    return update(rating: 0) if reviews_count.zero?
 
+    new_average_rating = ratings_sum / reviews_count.to_f
+    update(rating: new_average_rating.round(2))
+  end
 end

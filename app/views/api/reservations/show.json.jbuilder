@@ -1,5 +1,6 @@
-business = @reservation.business.name
 json.extract! @reservation, 
-:business,
 :id, :date, :start_time, 
 :guests, :user_id, :business_id
+json.business do
+    json.extract! @reservation.business, :name
+end

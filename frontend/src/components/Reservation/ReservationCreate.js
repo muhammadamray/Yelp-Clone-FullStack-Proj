@@ -61,8 +61,8 @@ const ReservationCreate = () => {
     e.preventDefault();
     const reservation = await dispatch(createReservation(reservationData));
     console.log(reservation);
-    // if (reservation.length) {
-      // history.push("/reservations")
+    // if (reservation) {
+    //   history.push("/reservations")
     // }
   };
 

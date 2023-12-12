@@ -19,7 +19,7 @@ const Splash = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 5200);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [images.length]);

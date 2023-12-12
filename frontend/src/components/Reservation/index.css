@@ -5,6 +5,8 @@
   gap: 20px;
   margin-top: 80px;
   margin-bottom: 20px;
+  min-height: calc(100vh - 240px)
+  
 }
 
 .reservation-card {
@@ -17,6 +19,7 @@
   text-align: center;
   transition: transform 0.3s ease;
   position: relative;
+  height: 150px;
 }
 
 .reservation-card:hover {

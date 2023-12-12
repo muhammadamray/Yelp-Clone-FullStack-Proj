@@ -32,18 +32,17 @@ const BusinessShow = () => {
   useEffect(() => {
     dispatch(fetchBusiness(restId));
   }, [restId, dispatch]);
-  
+
   useEffect(() => {
     if (currUser) {
       dispatch(fetchReservations());
     }
   }, [currUser, dispatch]);
-  
+
   // Handle business not found
   if (!business) {
     return <p>Business not found</p>;
   }
-
 
   return (
     <div className="page-container">
@@ -97,13 +96,34 @@ const BusinessShow = () => {
               {`${business.city}, ${business.state}, ${business.zipCode}`}
             </div>
             <div className="week-schedule">
-              <p>Mon 11:00 AM - 11:00 PM</p>
-              <p>Tue 11:00 AM - 11:00 PM</p>
-              <p>Wed 11:00 AM - 11:00 PM</p>
-              <p>Thu 11:00 AM - 11:00 PM</p>
-              <p>Fri 11:00 AM - 11:00 PM</p>
-              <p>Sat 11:00 AM - 11:00 PM</p>
-              <p>Sun 11:00 AM - 11:00 PM</p>
+              <div className="day-sch">
+                <div>Mon </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Tue </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Wed </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Thu </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Fri </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Sat </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
+              <div className="day-sch">
+                <div>Sun </div>
+                <div>09:00 AM - 09:00 PM</div>
+              </div>
             </div>
           </div>
           <div>

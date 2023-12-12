@@ -153,8 +153,16 @@
     padding-right: 8vw;
 }
 .week-schedule {
+    font-family: Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adjust the gap to the desired space between the paragraphs */
   }
 
+.day-sch{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+
+}

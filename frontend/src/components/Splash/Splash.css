@@ -16,7 +16,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 3.1s ease-in-out; /* Increase the duration to 3.2 seconds */
+    transition: opacity 2.1s ease-in-out; /* Increase the duration to 3.2 seconds */
 }
   
 .fade.active {
@@ -41,8 +41,15 @@
     /* transform: translate(-50%, -50%); */
     text-shadow: rgb(0, 0, 0) 0 0 10px;
     backdrop-filter: blur(4px);
-    width: 345px;
+    width: 400px;
+    padding: 7px;
+    border-radius: 10px;
+    
+    
 }
+
+
+
   
 .logo {
     width: 9%;

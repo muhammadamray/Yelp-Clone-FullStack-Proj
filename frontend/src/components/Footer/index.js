@@ -19,15 +19,26 @@ const Footer = () => {
           </ul>
           <ul>
             <li>
-              <h2>My Github</h2>
+              <a href="https://github.com/muhammadamray" target="_blank">
+                My GitHub
+              </a>
             </li>
-            <li>My Linkedin</li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/muhammad-amray-b94983207/"
+                target="_blank"
+              >
+                My LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Not Yelp, Inc. All Rights Reserved</p>
+        <p>
+          &copy; {new Date().getFullYear()} Not Yelp, Inc. All Rights Reserved
+        </p>
       </div>
     </footer>
   );

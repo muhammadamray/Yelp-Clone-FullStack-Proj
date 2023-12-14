@@ -54,13 +54,11 @@ const ReservationCreate = () => {
     }
 
     setReservationData({ ...reservationData, [name]: value });
-    // if (err === null) setReservationData({ ...reservationData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const reservation = await dispatch(createReservation(reservationData));
-    console.log(reservation);
     if (reservation) {
       history.push("/reservations")
     }

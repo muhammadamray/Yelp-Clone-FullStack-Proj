@@ -1,18 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-// Link,
 import { useDispatch, useSelector } from "react-redux";
 import { getBusiness, fetchBusiness } from "../../store/business";
 import { useLocation } from "react-router-dom";
 import "./BusinessShow.css";
 import check from "./check.png";
-import { fetchReviews, getReviews } from "../../store/review";
-// import ReviewIndexItem from "../Reviews/ReviewIndexItem";
+import { getReviews } from "../../store/review";
 import ReviewIndex from "../Reviews/ReviewIndex";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Rating from "@mui/material/Rating";
-// import RestaurantMap from "../RestaurantMap";
-// import BusinessMap from "../../components/NotYelpMap"
 import YelpMap from "../YelpMap";
 import ReservationCreate from "../Reservation/ReservationCreate";
 import { fetchReservations } from "../../store/reservation";

@@ -33,15 +33,12 @@ const searchReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case GET_SEARCH_RESULTS:
-      // return { ...action.searchResults.businesses };
       newState.results = { ...action.searchResults.businesses };
       return newState;
     case CLEAR_SEARCH_RESULTS:
-      // return {};
       newState.results = {};
       return newState;
     case GET_SEARCH_SUGGESTIONS:
-      // return { ...action.searchSuggestions.businesses };
       newState.suggestions = { ...action.searchSuggestions.businesses };
       return newState;
     default:

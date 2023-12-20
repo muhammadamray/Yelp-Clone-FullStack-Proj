@@ -9,8 +9,6 @@ import Business from "./components/Business";
 import BusinessShow from "./components/BusinessShow";
 import NotFound from "./components/NotFound";
 import Search from "./components/SearchShowPage/SearchShowPage";
-// import ReviewForm from "./components/Reviews/ReviewForm";
-// import ReviewShow from "./components/Reviews/ReviewShow";
 import ReviewCreate from "./components/Reviews/ReviewCreate";
 import ReviewEdit from "./components/Reviews/ReviewEdit";
 import Reservations from "./components/Reservation/index"

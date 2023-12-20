@@ -21,7 +21,6 @@ const BusinessShow = () => {
 
   const business = useSelector(getBusiness(restId));
   const reviews = useSelector((state) => getReviews(state, restId));
-  // const reviews = useSelector((state) => state.reviews)
   const currUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
@@ -35,7 +34,6 @@ const BusinessShow = () => {
     }
   }, [currUser, dispatch]);
 
-  // Handle business not found
   if (!business) {
     return <p>Business not found</p>;
   }

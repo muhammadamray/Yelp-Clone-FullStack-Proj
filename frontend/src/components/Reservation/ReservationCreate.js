@@ -63,6 +63,7 @@ const ReservationCreate = () => {
       history.push("/reservations")
     }
   };
+  //used history instead as its easier to render a new page 
 
   let times = [
     "12:00 PM",

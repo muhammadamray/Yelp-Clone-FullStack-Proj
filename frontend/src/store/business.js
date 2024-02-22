@@ -2,6 +2,8 @@
 import csrfFetch from "./csrf";
 import { createSelector } from "reselect";
 
+const selectBusinesses = (state) => state.businesses;
+
 // Define action types
 export const RECEIVE_BUSINESSES = "business/RECEIVE_BUSINESSES";
 export const RECEIVE_BUSINESS = "business/RECEIVE_BUSINESS";

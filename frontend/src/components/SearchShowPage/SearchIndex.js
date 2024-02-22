@@ -10,7 +10,7 @@ import Search from "./SearchShowPage";
 const Business = (props) => {
 
   //   const businesses = useSelector(getBusinesses);
-//   const businesses = useSelector((state) => Object.values(state.search));
+  //  const businesses = useSelector((state) => Object.values(state.search));
   // const [businesses, setBusinesses] = useState(props.searchResults);
   const businesses = props.searchResults
   const dispatch = useDispatch();
@@ -19,22 +19,29 @@ const Business = (props) => {
     dispatch(fetchBusinesses());
   }, [dispatch]);
 
+  console.log(businesses, "hello")
   return (
     <>
       <div className="business-pg-container">
         <ul className="businesses-container">
-          {businesses &&
+
+        {businesses && Object.values(businesses)?.length === 0 ? (
+            <div id="results-for">No Results</div>
+          ) : (
+            businesses &&
             businesses.map((business) => (
               <li
                 key={business.id}
-                onMouseEnter={() => setHighlightedBusiness(business.id)} // Set the highlighted business on mouse enter
-                onMouseLeave={() => setHighlightedBusiness(null)} // Reset the highlighted business on mouse leave
+                onMouseEnter={() => setHighlightedBusiness(business.id)}
+                onMouseLeave={() => setHighlightedBusiness(null)}
               >
                 <Link to={`/restaurants/${business.id}`}>
                   <IndexItem business={business} photo={business.photoURL} />
                 </Link>
               </li>
-            ))}
+            ))
+          )}
+          
         </ul>
         <div className="business-pg-map-container">
           <BusinessMapWrapper

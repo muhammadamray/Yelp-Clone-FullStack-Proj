@@ -19,12 +19,12 @@ const Search = () => {
       dispatch(fetchSearchResults(query));
     }
   }, []);
-
+  // console.log(searchResults,"search")
   return (
     <div className="main-content-container">
-      {!searchResults?.length && (
-        <div id="results-for">No results containing "{query}"</div>
-      )}
+      {/* {searchResults && Object.values(searchResults)?.length === 0 && (
+        <div id="results-for">No Results Containing "{query}"</div>
+      )} */}
 
       {/* {Object.values(searchResults).map((result) => {
                 return (

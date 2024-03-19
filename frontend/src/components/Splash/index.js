@@ -30,14 +30,31 @@ const Splash = () => {
     }
   }, [currUser, dispatch]);
 
+  // useEffect(() => {
+  //   const url =
+  //     "https://api.yelp.com/v3/businesses/search?location=nyc&term=pizza&sort_by=best_match&limit=20";
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       accept: "application/json",
+  //       Authorization:
+  //         "fyKsAYn-fOsN3OIi_vekzWD2Wx37YurS3rsRm0YzVudZy_DhC6p6Csrtr9AtzKYGfLdld1fnQC6YI3D_OKSOqiHTIbhhYmqNBKdCsnUdtweMra3ud3-CLkMuz3zwZXYx",
+  //     },
+  //     // mode: "no-cors",
+  //   };
+
+  //   fetch(url, options)
+  //     .then((res) => res.json())
+  //     .then((json) => console.log(json))
+  //     .catch((err) => console.error("error:" + err));
+  // }, []);
+
   return (
     // <div className="splash-container">
     <div className="carousel">
       <div className="centext">
-        <div className="splash-text">
-          Welcome to Not Yelp
-        </div>
-          <img className="logo" src={Logo} alt="Logo" />
+        <div className="splash-text">Welcome to Not Yelp</div>
+        <img className="logo" src={Logo} alt="Logo" />
       </div>
       {images.map((image, index) => (
         <img

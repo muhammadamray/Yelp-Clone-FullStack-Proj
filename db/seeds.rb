@@ -222,7 +222,190 @@ ApplicationRecord.transaction do
     filename: 'lom.webp'
   )
 
-  puts 'Creating review'
+  business_11 = Business.create!(
+  name: "Le Bernardin",
+  city: 'New York City',
+  state: 'New York',
+  zip_code: '10019',
+  latitude: 40.7617,
+  longitude: -73.9817,
+  price_range: '$$$$',
+  phone_number: '212-554-1515',
+  category: 'Seafood',
+  rating: 4.8
+  )
+
+  business_11.photo.attach(
+    io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/bern.jpeg'),
+    filename: 'bern.jpeg'
+  )
+
+
+  business_12 = Business.create!(
+  name: "Per Se",
+  city: 'New York City',
+  state: 'New York',
+  zip_code: '10019',
+  latitude: 40.7685,
+  longitude: -73.9822,
+  price_range: '$$$$',
+  phone_number: '212-823-9335',
+  category: 'French',
+  rating: 4.9
+)
+
+business_12.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/perse.webp'),
+  filename: 'perse.webp'
+)
+
+business_13 = Business.create!(
+  name: "Jean-Georges",
+  city: 'New York City',
+  state: 'New York',
+  zip_code: '10023',
+  latitude: 40.7683,
+  longitude: -73.9819,
+  price_range: '$$$$',
+  phone_number: '212-299-3900',
+  category: 'French',
+  rating: 4.7
+)
+
+business_13.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/jean.jpeg'),
+  filename: 'jean.jpg'
+)
+
+business_14 = Business.create!(
+  name: "Eleven Madison Park",
+  city: 'New York City',
+  state: 'New York',
+  zip_code: '10010',
+  latitude: 40.7418,
+  longitude: -73.9876,
+  price_range: '$$$$',
+  phone_number: '212-889-0905',
+  category: 'American',
+  rating: 4.8
+)
+
+business_14.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/eleven.webp'),
+  filename: 'eleven.webp'
+)
+
+business_15 = Business.create!(
+  name: "Daniel",
+  city: 'New York City',
+  state: 'New York',
+  zip_code: '10065',
+  latitude: 40.7667,
+  longitude: -73.9673,
+  price_range: '$$$$',
+  phone_number: '212-288-0033',
+  category: 'French',
+  rating: 4.7
+)
+
+business_15.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/daniel.webp'),
+  filename: 'daniel.webp'
+)
+
+business_16 = Business.create!(
+  name: "Juniper",
+  city: 'Brooklyn',
+  state: 'New York',
+  zip_code: '11201',
+  latitude: 40.6929,
+  longitude: -73.9862,
+  price_range: '$$',
+  phone_number: '718-488-0800',
+  category: 'American (New)',
+  rating: 4.6
+)
+
+business_16.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/juniper.jpeg'),
+  filename: 'juniper.jpg'
+)
+
+business_17 = Business.create!(
+  name: "Dellarocco's of Brooklyn",
+  city: 'Brooklyn',
+  state: 'New York',
+  zip_code: '11201',
+  latitude: 40.6913,
+  longitude: -73.9956,
+  price_range: '$$',
+  phone_number: '718-858-1010',
+  category: 'Pizza',
+  rating: 4.5
+)
+
+business_17.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/della.webp'),
+  filename: 'della.webp'
+)
+
+business_18 = Business.create!(
+  name: "Lilia",
+  city: 'Brooklyn',
+  state: 'New York',
+  zip_code: '11211',
+  latitude: 40.7170,
+  longitude: -73.9517,
+  price_range: '$$$',
+  phone_number: '718-576-3095',
+  category: 'Italian',
+  rating: 4.7
+)
+
+business_18.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/lilia.jpeg'),
+  filename: 'lilia.jpg'
+)
+
+business_19 = Business.create!(
+  name: "Maison Premiere",
+  city: 'Brooklyn',
+  state: 'New York',
+  zip_code: '11211',
+  latitude: 40.7111,
+  longitude: -73.9574,
+  price_range: '$$$',
+  phone_number: '347-335-0446',
+  category: 'Seafood',
+  rating: 4.6
+)
+
+business_19.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/maison.jpeg'),
+  filename: 'maison.jpg'
+)
+
+business_20 = Business.create!(
+  name: "Llama Inn",
+  city: 'Brooklyn',
+  state: 'New York',
+  zip_code: '11249',
+  latitude: 40.7147,
+  longitude: -73.9557,
+  price_range: '$$$',
+  phone_number: '718-387-3434',
+  category: 'Peruvian',
+  rating: 4.5
+)
+
+business_20.photo.attach(
+  io: URI.open('https://yelp-clone-fullstack-proj-seeds.s3.amazonaws.com/inn.jpeg'),
+  filename: 'inn.jpg'
+)
+
+
+
+puts 'Creating review'
 
   # User 1 reviews
   review_1 = Review.create!(
